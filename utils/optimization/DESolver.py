@@ -13,11 +13,17 @@
 ## Ported To Python By: James R. Phillips
 ##                      Birmingham, Alabama USA
 ##                      zunzun@zunzun.com
+##
 
 # Changed, fixed old python style and added a function
 #def fmin_de(f,min,max):
 #which minimises function "f", between min and max.
 #2006 Ondrej Certik, STScI
+
+##The code is public domain, from the email from James Phillips:
+##  As far as I know it is public domain.  You may certainly
+##  include it in a GPL licensed project, or do whatever
+##  you wish with the code.
 
 import math
 
