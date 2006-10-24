@@ -1,0 +1,9 @@
+chemev
+======
+
+Utilities for dealing with simple models of the stellar chemical evolution
+Utilities in python for dealing with simple parametrized models of the chemical
+evolution of a stellar population. Input is the CMD diagram and a set of
+isochrones.
+
+License: GPL
