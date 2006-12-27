@@ -4,7 +4,7 @@
 import glob
 import os
 
-import numarray 
+import numpy as numarray 
 import pyfits
 
 import utils

@@ -1,10 +1,11 @@
 #import cgitb; cgitb.enable(format="text")
 
 import sys
-sys.path.append("/data/goods151/ondrej/tests/chemev/utils")
+#sys.path.append("/data/goods151/ondrej/tests/chemev/utils")
+sys.path.append("/home/ondra/stsci/chemev/utils")
 import pickle
 
-import numarray
+import numpy as numarray
 
 import iso
 import utils
