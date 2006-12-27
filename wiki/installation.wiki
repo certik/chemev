@@ -3,7 +3,7 @@
 == Install PyMC ==
 
 {{{
-wajig install python-numpy-dev
+wajig install python-numpy-dev python-matplotlib
 svn checkout http://pymc.googlecode.com/svn/trunk/ pymc
 cd pymc
 python setup.py build
