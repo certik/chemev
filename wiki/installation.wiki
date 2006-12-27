@@ -26,6 +26,13 @@ cd ..
 == Install chemev ==
 
 {{{
+wajig install python-pyfits
 svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
-cd chemev
+}}}
+
+== Test chemev ==
+
+{{
+cd chemev/calc/halomcmc
+python mcmc.py > /tmp/d.txt
 }}}
