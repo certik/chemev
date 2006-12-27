@@ -87,6 +87,23 @@ def getdt(logt):
     dx = abs(linear_midpts[1:]-linear_midpts[:-1]) #[28.4,284.6,2846.0,28460.4]
     return dx
 
+def calculateweights(t,sfr):
+    #sfr is the density - SFR*dt is the total amount of new stars in the 
+    #interval dt
+    #get the bins centered at t - t is logage, dt contains the
+    #time interval (in age, not logage) around each t
+    dt = getdt(t) 
+    #sfr * dt = total amount of stars in the time interval (bin) around each age
+    w0=sfr*dt   
+    #normalize - sum(w) = 1, so the total amount of stars in the field is 1.0
+    #w(t) is the amount of new stars in the time bin around t, so
+    #the sum w(t) over all t is the total amount of stars. 
+    w = w0/sum(w0) 
+
+#    sfrate = w/dt
+#    sfrate = sfrate/sfrate.mean()
+    return w
+
 def plot(data2):
     import pylab
     pylab.imshow(data2,origin='lower',interpolation="nearest")
@@ -102,10 +119,23 @@ def plot2(data1,data2):
 #    pylab.xticks(pylab.arange(40), [str(n+10) for n in pylab.arange(40)])
     pylab.show()
 
-def plotfehsfr(feh,sfr):
+def plotfehsfr(t,feh,sfr):
     import pylab
     pylab.subplot(121)
-    pylab.plot(feh[0],feh[1])
+    pylab.plot(t,feh)
     pylab.subplot(122)
-    pylab.plot(sfr[0],sfr[1])
+    pylab.plot(t,sfr)
     pylab.show()
+
+def plotfehsfr2(t,feh,sfr1,sfr2):
+    import pylab
+    pylab.subplot(131)
+    pylab.plot(t,feh)
+    pylab.subplot(132)
+    pylab.plot(t,sfr1)
+    pylab.subplot(133)
+    pylab.plot(t,sfr2)
+    pylab.show()
+
+def p2c(r,phi):
+    return r*math.cos(phi),r*math.sin(phi)

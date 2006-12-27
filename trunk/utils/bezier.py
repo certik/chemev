@@ -125,9 +125,9 @@ class point:
 
 
 def interpolate(points,t):
-    """points=(x,y), list of x's and y's. "t" ... list of x, for which
-    we want to evaluate the dependence "y". returns t,yy, where yy is the
-    "y" evaluated at the grid "t".
+    """points=(x,y), list of x's and y's. "t" ... list of x, for which we want
+    to evaluate the dependence "y". returns a list of "y" evaluated at the grid
+    "t".
     """
     xx,yy=points
     x=t
@@ -149,4 +149,4 @@ def interpolate(points,t):
     y2 = slope2*(t2-xx[-1])+yy[-1]    
 
     y = numarray.concatenate((y0,y1,y2))
-    return t,y
+    return y
