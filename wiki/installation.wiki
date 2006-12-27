@@ -1,6 +1,12 @@
 #summary Installation instructions
 
-= Details =
+== Install PyMC ==
+
+{{{
+svn checkout http://pymc.googlecode.com/svn/trunk/ pymc
+}}}
+
+== Install chemev ==
 
 {{{
 svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
