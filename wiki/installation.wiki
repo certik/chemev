@@ -30,8 +30,10 @@ wajig install python-pyfits
 svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
 }}}
 
-and edit the path to pymc in the file:
+edit the path to `pymc` in the file:
 `chemev/utils/optimization/mcmc.py`
+
+edit the path to `chemev/utils` in the file `chemev/calc/halomcmc/mcmc.py`
 
 == Test chemev ==
 
