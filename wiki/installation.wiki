@@ -39,3 +39,32 @@ and edit the path to pymc in the file:
 cd chemev/calc/halomcmc
 python mcmc.py > /tmp/d.txt
 }}}
+
+after a while you can kill it with CTRL-C and inspect the file /tmp/d.txt. You should see something like this:
+
+{{{
+reading isochrones
+fitting
+
+Iteration 0 at 0.000184059143066
+
+Marginal Posterior Statistics
+==================================================
+Node: AIC
+
+95% HPD interval = [234.0, 234.0]
+mc error = 0.0
+mean = 234.0
+n = 5000
+quantiles =
+    2.5:    234.0
+    25: 234.0
+    50: 234.0
+    75: 234.0
+    97.5:   234.0
+standard deviation = 0.0
+
+==================================================
+
+...
+}}}
