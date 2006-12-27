@@ -1,7 +1,7 @@
 import sys
 #sys.path.append("/home/ondrej/data/PyMC-1.0-beta2/build/lib.linux-x86_64-2.4")
-#sys.path.append("/home/ondrej/data/tests/pymc/build/lib.linux-x86_64-2.4")
-sys.path.append("/home/ondra/stsci/pymc/build/lib.linux-i686-2.4")
+sys.path.append("/home/ondrej/data/tests/pymc/build/lib.linux-x86_64-2.4")
+#sys.path.append("/home/ondra/stsci/pymc/build/lib.linux-i686-2.4")
 import PyMC
 
 def fmin_mcmc(f,x0,callback=None):
