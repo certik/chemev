@@ -3,6 +3,6 @@
 = Details =
 
 {{{
-svn checkout https://chemev.googlecode.com/svn/trunk/
+svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
 cd chemev
 }}}
