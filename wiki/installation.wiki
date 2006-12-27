@@ -15,7 +15,7 @@ on the goods cluster, there are some problems with the fortran and python instal
 f77 -g -Wall -fno-second-underscore -fPIC -O3 -funroll-loops -march=opteron -mmmx -m3dnow -msse2 -msse -Ibuild/src.linux-x86_64-2.4 -I/usr/stsci/pyssg/Python-2.4.3/lib/python2.4/site-packages/numpy/core/include -I/usr/stsci/pyssg/Python-2.4.3/include/python2.4 -c -c PyMC/flib.f -o build/temp.linux-x86_64-2.4/PyMC/flib.o
 f77 -g -Wall -fno-second-underscore -fPIC -O3 -funroll-loops -march=opteron -mmmx -m3dnow -msse2 -msse -Ibuild/src.linux-x86_64-2.4 -I/usr/stsci/pyssg/Python-2.4.3/lib/python2.4/site-packages/numpy/core/include -I/usr/stsci/pyssg/Python-2.4.3/include/python2.4 -c -c build/src.linux-x86_64-2.4/PyMC/flib-f2pywrappers.f -o build/temp.linux-x86_64-2.4/PyMC/flib-f2pywrappers.o
 cd build/temp.linux-x86_64-2.4/build/src.linux-x86_64-2.4 
-g77 -g -Wall -shared PyMC/flibmodule.o fortranobject.o ../../PyMC/flib.o PyMC/flib-f2pywrappers.o -lg2c -o ../../../lib.linux-i686-2.4/PyMC/flib.so
+g77 -g -Wall -shared PyMC/flibmodule.o fortranobject.o ../../PyMC/flib.o ../../PyMC/flib-f2pywrappers.o -lg2c -o ../../../lib.linux-x86_64-2.4/PyMC/flib.so
 cd ../../../..
 }}}
 
