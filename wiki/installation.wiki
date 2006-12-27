@@ -1,5 +1,9 @@
 #summary Installation instructions
 
+This projects depends on pymc, pyfits, matplotlib and numpy (numarray). It assumes that pyfits, matplotlib and numpy (numarray) are in the standard locations. The pymc needs to be installed though. 
+
+Create some directory, and in this dir:
+
 == Install PyMC ==
 
 {{{
