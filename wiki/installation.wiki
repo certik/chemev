@@ -7,6 +7,15 @@ wajig install python-numpy-dev
 svn checkout http://pymc.googlecode.com/svn/trunk/ pymc
 cd pymc
 python setup.py build
+}}
+
+on the goods cluster, there are some problems with the fortran and python installation, so you need to issue these commands now:
+
+{{
+f77 -g -Wall -fno-second-underscore -fPIC -O3 -funroll-loops -march=opteron -mmmx -m3dnow -msse2 -msse -Ibuild/src.linux-x86_64-2.4 -I/usr/stsci/pyssg/Python-2.4.3/lib/python2.4/site-packages/numpy/core/include -I/usr/stsci/pyssg/Python-2.4.3/include/python2.4 -c -c PyMC/flib.f -o build/temp.linux-x86_64-2.4/PyMC/flib.o
+}}
+
+{{
 cd ..
 }}}
 
