@@ -4,6 +4,7 @@ import numarray
 
 from amoeba import fmin_simplex
 from DESolver import fmin_de
+from mcmc import fmin_mcmc
 
 def logistic(x):
     """-inf<x<inf    ->   0..1"""
@@ -43,7 +44,8 @@ def minmax(algorithm,f,pars,min,max,callback=None):
         x=logistic2real(params,min,max)
         return callback(x,value,iter)
     r=algorithm(newf,real2logistic(pars,min,max),callback=newcallback)
-    return logistic2real(r,min,max) 
+    if r!=None:
+        return logistic2real(r,min,max) 
 
 def minc(algorithm,f,pars,callback=None):
     M=1.e7
