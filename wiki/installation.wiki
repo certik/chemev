@@ -34,9 +34,10 @@ g77 -g -Wall -shared PyMC/flibmodule.o fortranobject.o ../../PyMC/flib.o ../../P
 cd ../../../../..
 }}}
 
-Looks like a typo above...second command should be the following, I think (seems to work):
+Looks like a typo above...second & third commands should be the following, I think (seems to work):
 {{{
  f77 -g -Wall -fno-second-underscore -fPIC -O3 -funroll-loops -march=opteron -mmmx -m3dnow -msse2 -msse -Ibuild/src.linux-x86_64-2.4 -I/usr/stsci/pyssg/Python-2.4.3/lib/python2.4/site-packages/numpy/core/include -I/usr/stsci/pyssg/Python-2.4.3/include/python2.4 -c -c build/src/PyMC/flib-f2pywrappers.f -o build/temp.linux-x86_64-2.4/PyMC/flib-f2pywrappers.o
+cd build/temp.linux-x86_64-2.4/build/src
 }}}
 
 == Test chemev ==
