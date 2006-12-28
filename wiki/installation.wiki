@@ -58,6 +58,7 @@ This will start the fitting procedure. It will start with values in bestfit117 a
 
 === Test mcmc ===
 
+You need the PyMC package to have installed (see above).
 This will run 117 isochrones fitting using the mcmc method:
 
 {{{
@@ -94,7 +95,7 @@ standard deviation = 0.0
 ...
 }}}
 
-==== Test simple models ===
+=== Test simple models ===
 
 This will run 696 isochrones simple model fitting using the simplex method.
 
