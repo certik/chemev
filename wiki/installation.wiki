@@ -93,3 +93,14 @@ standard deviation = 0.0
 
 ...
 }}}
+
+==== Test simple models ===
+
+This will run 696 isochrones simple model fitting using the simplex method.
+
+{{{
+cd calc/halo_gaussian           #or "cd calc/halo_nongaussian", its just a different simple model
+python fit.py
+}}}
+
+This will start the fitting procedure. It will start with values in bestfit and everytime it finds a better solution, it will write it to bestfit, which means that you can you can kill it anytime with CTRL-C and start it again.
