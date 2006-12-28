@@ -2,7 +2,7 @@
 
 #import cgitb; cgitb.enable(format="text")
 import sys
-sys.path.append("/home/ondrej/py")
+sys.path.append("../../utils")
 import math
 from math import pi
 
