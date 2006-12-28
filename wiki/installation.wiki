@@ -54,7 +54,7 @@ This creates a file bestfit117 initialized with ones.
 python 117isofit.py
 }}}
 
-This will start the fitting procedure. It will start with values in bestfit117 and everytime it finds a better solution, it will write it to bestfit117, which means that you can you can kill it anytime with CTRL-C and start it again.
+This will start the fitting procedure. It will start with values in bestfit117 and everytime it finds a better solution, it will write it to bestfit117, which means that you can kill it anytime with CTRL-C and start it again.
 
 === Test mcmc ===
 
@@ -104,4 +104,4 @@ cd calc/halo_gaussian           #or "cd calc/halo_nongaussian", its just a diffe
 python fit.py
 }}}
 
-This will start the fitting procedure. It will start with values in bestfit and everytime it finds a better solution, it will write it to bestfit, which means that you can you can kill it anytime with CTRL-C and start it again.
+This will start the fitting procedure. It will start with values in bestfit and everytime it finds a better solution, it will write it to bestfit, which means that you can kill it anytime with CTRL-C and start it again.
