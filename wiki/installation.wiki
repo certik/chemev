@@ -4,7 +4,16 @@ This projects depends on pymc, pyfits, matplotlib and numpy (numarray). It assum
 
 Create some directory, and in this dir do all the installation steps below. The "wajig" commands are the Debian way how to install the packages - in other distros, you just need to install those packages in your way.
 
-== Install PyMC ==
+== Install chemev ==
+
+{{{
+wajig install python-pyfits
+svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
+}}}
+
+== Install PyMC (optional) ==
+
+Only install PyMC if you are going to use mcmc. Otherwise just skip this step.
 
 {{{
 wajig install python-numpy-dev python-matplotlib
@@ -25,16 +34,10 @@ g77 -g -Wall -shared PyMC/flibmodule.o fortranobject.o ../../PyMC/flib.o ../../P
 cd ../../../../..
 }}}
 
-== Install chemev ==
-
-{{{
-wajig install python-pyfits
-svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
-}}}
 
 == Test chemev ==
 
-Now you should have directories "pymc" and "chemev" in the installation directory.
+Now you should have directories "pymc" (optional) and "chemev" in the installation directory.
 
 {{{
 cd chemev/calc/halomcmc
