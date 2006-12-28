@@ -97,7 +97,7 @@ standard deviation = 0.0
 
 === Test simple models ===
 
-This will run 696 isochrones simple model fitting using the simplex method.
+This will run 696 isochrones simple model fitting using the simplex method. The 696 isochrones are not included in the package (yet), so you need to edit the path to the isochrones in the file "fit.py" manually.
 
 {{{
 cd calc/halo_gaussian           #or "cd calc/halo_nongaussian", its just a different simple model
