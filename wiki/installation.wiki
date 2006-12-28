@@ -39,6 +39,8 @@ cd ../../../../..
 
 Now you should have directories "pymc" (optional) and "chemev" in the installation directory.
 
+=== Test mcmc ===
+
 {{{
 cd chemev/calc/halomcmc
 python mcmc.py > /tmp/d.txt
