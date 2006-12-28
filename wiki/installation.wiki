@@ -39,7 +39,26 @@ cd ../../../../..
 
 Now you should have directories "pymc" (optional) and "chemev" in the installation directory.
 
+=== Test simplex ===
+
+This will run 117 isochrones fitting using the simplex method.
+
+{{{
+cd calc/halosimplex/
+python 117isofit.py
+}}}
+
+This creates a file bestfit117 initialized with ones.
+
+{{{
+python 117isofit.py
+}}}
+
+This will start the fitting procedure. It will start with values in bestfit117 and everytime it finds a better solution, it will write it to bestfit117, which means that you can you can kill it anytime with CTRL-C and start it again.
+
 === Test mcmc ===
+
+This will run 117 isochrones fitting using the mcmc method:
 
 {{{
 cd chemev/calc/halomcmc
