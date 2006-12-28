@@ -1,12 +1,11 @@
-#find this directory
-#"/home/ondrej/data/PyMC-1.0-beta2/build/lib.linux-x86_64-2.4"
-#so that we can import PyMC
+# This program assumes that pymc and flib.so are in PYTHONPATH
+# Find both in the PyMC directory tree
 import glob
-path= glob.glob("../../../*/*/*/*/flib.so")[0]
-path=path[:path.rfind("/")]
-path=path[:path.rfind("/")]
+#path= glob.glob("../../../*/*/*/*/flib.so")[0]
+#path=path[:path.rfind("/")]
+#path=path[:path.rfind("/")]
 import sys
-sys.path.append(path)
+#sys.path.append(path)
 import PyMC
 
 def fmin_mcmc(f,x0,callback=None):

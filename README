@@ -11,4 +11,7 @@ License: GPL
 Installation and usage
 ======================
 
+To set your PYTHONPATH:
+source DoSetup  (edit path to PyMC if necessary)
+
 See http://code.google.com/p/chemev/wiki/installation
