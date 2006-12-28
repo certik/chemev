@@ -40,6 +40,13 @@ Looks like a typo above...second & third commands should be the following, I thi
 cd build/temp.linux-x86_64-2.4/build/src
 }}}
 
+== Set your PYTHONPATH ==
+
+{{{
+cd chemev
+source Dosetup
+}}}
+
 == Test chemev ==
 
 Now you should have directories "pymc" (optional) and "chemev" in the installation directory.
