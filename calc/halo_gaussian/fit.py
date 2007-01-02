@@ -82,5 +82,5 @@ def simul(isodir):
             params.getvalues(),params.min(),params.max(),b)
 
 if __name__ == "__main__":
-    simul("/home/ondrej/data/isochrones/696/halo")
+    simul("../../isochrones/696/halo")
     #pylab.show()
