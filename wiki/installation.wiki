@@ -9,6 +9,7 @@ Create some directory, and in this dir do all the installation steps below. The 
 {{{
 wajig install python-pyfits
 svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
+./unpack
 }}}
 
 == Install PyMC (optional) ==
