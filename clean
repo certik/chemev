@@ -1,0 +1,5 @@
+cd isochrones
+rm -rf 117 696
+cd ..
+rm -f calc/halomcmc/mcmc.out
+rm -f calc/halosimplex/bestfit117
