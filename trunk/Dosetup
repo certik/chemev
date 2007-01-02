@@ -2,7 +2,9 @@
 cd ../pymc/PyMC
 export PYTHONPATH="`pwd`:$PYTHONPATH"
 cd ..
-#export PYTHONPATH="`pwd`/build/lib.linux-x86_64-2.4/PyMC/flib.so:$PYTHONPATH"
-#export PYTHONPATH="`pwd`/build/lib.linux-x86_64-2.4:$PYTHONPATH"
+#this works for goods15
+export PYTHONPATH="`pwd`/build/lib.linux-x86_64-2.4:$PYTHONPATH"
+#this works for linux
 export PYTHONPATH="`pwd`/build/lib.linux-i686-2.4:$PYTHONPATH"
+#we can have both in the search path, it's not a problem
 cd ../chemev
