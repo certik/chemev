@@ -12,6 +12,8 @@ svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.c
 ./unpack
 }}}
 
+(The ./unpack script will unpack all the isochrones)
+
 == Install PyMC (optional) ==
 
 Only install PyMC if you are going to use mcmc. Otherwise just skip this step.
@@ -110,7 +112,7 @@ standard deviation = 0.0
 
 === Test simple models ===
 
-This will run 696 isochrones simple model fitting using the simplex method. The 696 isochrones are not included in the package (yet), so you need to edit the path to the isochrones in the file "fit.py" manually.
+This will run 696 isochrones simple model fitting using the simplex method.
 
 {{{
 cd calc/halo_gaussian           #or "cd calc/halo_nongaussian", its just a different simple model
@@ -118,3 +120,8 @@ python fit.py
 }}}
 
 This will start the fitting procedure. It will start with values in bestfit and everytime it finds a better solution, it will write it to bestfit, which means that you can kill it anytime with CTRL-C and start it again.
+
+If you want to create an initial bestfit file, then run
+{{{
+python fit.py n
+}}}
