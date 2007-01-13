@@ -75,7 +75,7 @@ class DESolver:
         self.testGenerations = 20
         self.cutoffEnergy = 0.0
 
-    def Setup(self, min, max, deStrategy, diffScale, crossoverProb,dim=0,pop=0):
+    def Setup(self, guess, min, max, deStrategy, diffScale, crossoverProb,dim=0,pop=0):
         if dim==0:
             dim=len(min)
         assert(len(min)==len(max))
@@ -95,6 +95,9 @@ class DESolver:
         for i in range(self.nPop):
             for j in range(self.nDim):
                 self.population[i*self.nDim+j] = self.RandomUniform(min[j],max[j])
+            # Set one of the entries to the initial guess
+            for j in range(self.nDim):
+                self.population[j] = guess[j]
             self.popEnergy[i] = 1.0E20
 
         for i in range(self.nDim):
@@ -120,8 +123,6 @@ class DESolver:
             self.calcTrialSolution = self.Best2Bin
         else: #self.strategy == stRand2Bin:
             self.calcTrialSolution = self.Rand2Bin
-
-
 
     def Solve(self, maxGenerations=0):
         if maxGenerations == 0:
