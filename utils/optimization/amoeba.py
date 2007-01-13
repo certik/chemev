@@ -176,3 +176,18 @@ def fmin_simplex(f,x0,callback=None):
     #print "loglikelihood:",-r[1]
     #print "iterations:",r[2]
     return r[0] 
+
+def fmin_simplex_minmax(f,x0,minvals,maxvals,callback=None):
+    """minimises the function f using the simplex method"""
+    def func(var,data=None):
+        x= -f(var)
+        return x
+    scale = []
+    for i in range(len(x0)):
+        d1 = maxvals[i]-x0[i]
+        d2 = x0[i]-minvals[i]
+        scale[i] = max(d1,d2)
+    r= amoeba(list(x0),scale,func,itmax=10000,callback=callback)
+    #print "loglikelihood:",-r[1]
+    #print "iterations:",r[2]
+    return r[0] 

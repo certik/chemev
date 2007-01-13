@@ -1,4 +1,8 @@
-#utility functions for the project, which can be reused elsewhere.
+""" Utility functions for the chemical evolution project, 
+"""
+
+__version__ = "1.0.0"
+__author__ = "H. C. Ferguson & O. Certik, STScI"
 
 import numarray
 import math
@@ -88,6 +92,10 @@ def getdt(logt):
     return dx
 
 def calculateweights(t,sfr):
+    """ Return the stellar mass formed in each interval of time. T need
+        not be uniformly spaced. Bins are centered at t and run from
+        (t[i-1]+t)/2 to (t[i+1]+t)/2.
+    """
     #sfr is the density - SFR*dt is the total amount of new stars in the 
     #interval dt
     #get the bins centered at t - t is logage, dt contains the
@@ -104,38 +112,20 @@ def calculateweights(t,sfr):
 #    sfrate = sfrate/sfrate.mean()
     return w
 
-def plot(data2):
-    import pylab
-    pylab.imshow(data2,origin='lower',interpolation="nearest")
-#    pylab.xticks(pylab.arange(40), [str(n+10) for n in pylab.arange(40)])
-    pylab.show()
-
-def plot2(data1,data2):
-    import pylab
-    pylab.subplot(121)
-    pylab.imshow(data1,origin='lower',interpolation="nearest")
-    pylab.subplot(122)
-    pylab.imshow(data2,origin='lower',interpolation="nearest")
-#    pylab.xticks(pylab.arange(40), [str(n+10) for n in pylab.arange(40)])
-    pylab.show()
-
-def plotfehsfr(t,feh,sfr):
-    import pylab
-    pylab.subplot(121)
-    pylab.plot(t,feh)
-    pylab.subplot(122)
-    pylab.plot(t,sfr)
-    pylab.show()
-
-def plotfehsfr2(t,feh,sfr1,sfr2):
-    import pylab
-    pylab.subplot(131)
-    pylab.plot(t,feh)
-    pylab.subplot(132)
-    pylab.plot(t,sfr1)
-    pylab.subplot(133)
-    pylab.plot(t,sfr2)
-    pylab.show()
-
 def p2c(r,phi):
+    """ Convert r,phi to x,y """
     return r*math.cos(phi),r*math.sin(phi)
+
+def nudge(p):
+    """ Nudge the parameters that are near their limits """
+    bestp = numarray.array(p.getvalues())
+    bestmin = numarray.array(p.min())
+    bestmax = numarray.array(p.max())
+    bestrange = bestmax-bestmin
+    tolerance = 0.002*bestrange
+    nudge = 0.05*bestrange*numarray.random_array.random(numarray.shape(tolerance))
+    p0 = numarray.where((bestp-bestmin)<tolerance,bestp+nudge,bestp)
+    p0 = numarray.where((bestmax-p0)<tolerance,p0-nudge,p0)
+    p.setvalues(p0)
+    return
+

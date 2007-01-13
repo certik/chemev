@@ -25,7 +25,6 @@ curve function:
 
 def curve(points,level=6):
 
-
 """
 
 import numarray
@@ -123,18 +122,21 @@ class point:
             raise "need to specify exactly one tangent"
 
 
-
 def interpolate(points,t):
     """points=(x,y), list of x's and y's. "t" ... list of x, for which we want
     to evaluate the dependence "y". returns a list of "y" evaluated at the grid
     "t".
+    Assumes t is sorted in ascending order
+    Assumes points x axis are sorted in ascending order
     """
     xx,yy=points
     x=t
 
     t0 = numarray.compress(x<=min(xx), x)
-    t1 = numarray.compress( (x>min(xx)) & (x<max(xx)), x )
-    t2 = numarray.compress(x>=max(xx), x)
+#   t1 = numarray.compress( (x>min(xx)) & (x<max(xx)), x )
+    t1 = numarray.compress( (x>min(xx)) & (x<xx[-1]), x )
+#   t2 = numarray.compress(x>=max(xx), x)
+    t2 = numarray.compress(x>=xx[-1], x)
     slope0 = (yy[1]-yy[0])/(xx[1]-xx[0])
     slope2 = (yy[-1]-yy[-2])/(xx[-1]-xx[-2])
     indices = numarray.searchsorted(xx,t1)
@@ -145,8 +147,8 @@ def interpolate(points,t):
     slope = (y1-y0)/(x1-x0)
 
     y1 = slope*(t1-x0)+y0
-    y0 = slope0*(t0-xx[0])+yy[0]    
-    y2 = slope2*(t2-xx[-1])+yy[-1]    
+    y0 = slope0*(t0-xx[0])+yy[0]    # extrapolate
+    y2 = slope2*(t2-xx[-1])+yy[-1]    # extrapolate
 
     y = numarray.concatenate((y0,y1,y2))
     return y
