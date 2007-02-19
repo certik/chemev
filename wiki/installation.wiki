@@ -1,7 +1,7 @@
 #summary Installation instructions
 #labels Featured
 
-This projects depends on pymc, pyfits, matplotlib and numpy (numarray). It assumes that pyfits, matplotlib and numpy (numarray) are in the standard locations. The pymc needs to be installed though. 
+This projects depends on pymc (optional), pyfits, matplotlib (optional) and numpy (numarray). It assumes that pyfits, matplotlib and numpy (numarray) are in the standard locations. See below how to install pymc, if you need it.
 
 Create some directory, and in this dir do all the installation steps below. The "wajig" commands are the Debian way how to install the packages - in other distros, you just need to install those packages in your way.
 
@@ -10,6 +10,7 @@ Create some directory, and in this dir do all the installation steps below. The 
 {{{
 wajig install python-numpy python-pyfits
 svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
+cd chemev
 ./unpack
 }}}
 
@@ -19,6 +20,8 @@ svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.c
 
 Only install PyMC if you are going to use mcmc. Otherwise just skip this step.
 
+Go to the directory where chemev is installed and:
+
 {{{
 wajig install python-numpy-dev python-matplotlib
 svn checkout http://pymc.googlecode.com/svn/trunk/ pymc
@@ -27,7 +30,7 @@ python setup.py build
 cd ..
 }}}
 
-on the goods cluster, there are some problems with the fortran and python installation, so you need to issue these commands now:
+On the goods cluster, there are some problems with the fortran and python installation, so you need to issue these commands now:
 
 {{{
 cd pymc
@@ -59,7 +62,7 @@ cd chemev
 source Dosetup
 }}}
 
-== Test chemev ==
+= Tests: example programs =
 
 Now you should have directories "pymc" (optional) and "chemev" in the installation directory.
 
@@ -79,6 +82,23 @@ python 117isofit.py
 }}}
 
 This will start the fitting procedure. It will start with values in bestfit117 and everytime it finds a better solution, it will write it to bestfit117, which means that you can kill it anytime with CTRL-C and start it again.
+
+=== Test simple models ===
+
+This will run 696 isochrones simple model fitting using the simplex method.
+
+{{{
+cd calc/halo_gaussian           #or "cd calc/halo_nongaussian", its just a different simple model
+python fit.py
+}}}
+
+This will start the fitting procedure. It will start with values in bestfit and everytime it finds a better solution, it will write it to bestfit, which means that you can kill it anytime with CTRL-C and start it again.
+
+If you want to create an initial bestfit file, then run
+{{{
+python fit.py n
+}}}
+
 
 === Test mcmc ===
 
@@ -117,20 +137,4 @@ standard deviation = 0.0
 ==================================================
 
 ...
-}}}
-
-=== Test simple models ===
-
-This will run 696 isochrones simple model fitting using the simplex method.
-
-{{{
-cd calc/halo_gaussian           #or "cd calc/halo_nongaussian", its just a different simple model
-python fit.py
-}}}
-
-This will start the fitting procedure. It will start with values in bestfit and everytime it finds a better solution, it will write it to bestfit, which means that you can kill it anytime with CTRL-C and start it again.
-
-If you want to create an initial bestfit file, then run
-{{{
-python fit.py n
 }}}
