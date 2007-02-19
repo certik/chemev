@@ -1,14 +1,15 @@
 #import cgitb; cgitb.enable(format="text")
 
 import sys
-sys.path.append("../../utils")
 import pickle
 
 import numpy as numarray
 
-import iso
-import utils
-import optimization
+from chemev import iso,utils,optimization
+
+if not optimization.have_mcmc:
+    print "PyMC not installed correctly. Check PYTHONPATH."
+    sys.exit()
 
 print "reading isochrones"
 #isodir="m31iso"
