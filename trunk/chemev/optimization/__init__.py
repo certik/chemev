@@ -13,7 +13,12 @@ import numarray
 
 from amoeba import fmin_simplex
 from DESolver import fmin_de
-from mcmc import fmin_mcmc
+
+#the mcmc depends on PyMC, which doesn't have to be installed
+try:
+    from mcmc import fmin_mcmc
+except:
+    pass
 
 def reflect(y,l,u):
     """ Modulate x so that it cycles from l to u then back down again
