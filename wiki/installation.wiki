@@ -46,6 +46,15 @@ cd build/temp.linux-x86_64-2.4/build/src
 
 == Set your PYTHONPATH ==
 
+PYTHONPATH needs to be set correctly. Execute:
+{{{
+eval `~/chemev/env.py`
+}}}
+Change the path to env.py according to your configuration. You can put this
+line to your .bashrc file.
+
+
+
 {{{
 cd chemev
 source Dosetup
