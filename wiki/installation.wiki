@@ -8,7 +8,7 @@ Create some directory, and in this dir do all the installation steps below. The 
 == Install chemev ==
 
 {{{
-wajig install python-pyfits
+wajig install python-numpy python-pyfits
 svn checkout https://chemev.googlecode.com/svn/trunk/ chemev --username ondrej.certik
 ./unpack
 }}}
