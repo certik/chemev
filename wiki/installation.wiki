@@ -56,6 +56,17 @@ line to your .bashrc file.
 
 Note: the env.py returns shell commands, that add the relevant paths to your PYTHONPATH (ensures that paths are not duplicated etc.). It automatically finds the chemev and pymc package (it assumes the pymc is installed in the same parent directory as chemev). This is necessary, because the exact path to PyMC depends on the architecture.
 
+You can check that env.py found everything by:
+{{{
+echo $PYTHONPATH
+}}}
+it should print something like:
+{{{
+/home/ondra/chemev:/home/ondra/pymc/build/lib.linux-i686-2.4
+}}}
+If you already had some paths in PYTHONPATH, they will of course be appended to it.
+The first path is to the chemev package, the second is to the pymc package. If the second path is missing, it means the env.py didn't find PyMC. 
+
 Deprecated way:
 {{{
 cd chemev
