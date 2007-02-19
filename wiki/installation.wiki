@@ -27,13 +27,11 @@ wajig install python-numpy-dev python-matplotlib python-tk
 svn checkout http://pymc.googlecode.com/svn/trunk/ pymc
 cd pymc
 python setup.py build
-cd ..
 }}}
 
 On the goods cluster, there are some problems with the fortran and python installation, so you need to issue these commands now:
 
 {{{
-cd pymc
 f77 -g -Wall -fno-second-underscore -fPIC -O3 -funroll-loops -march=opteron -mmmx -m3dnow -msse2 -msse -Ibuild/src.linux-x86_64-2.4 -I/usr/stsci/pyssg/Python-2.4.3/lib/python2.4/site-packages/numpy/core/include -I/usr/stsci/pyssg/Python-2.4.3/include/python2.4 -c -c PyMC/flib.f -o build/temp.linux-x86_64-2.4/PyMC/flib.o
 f77 -g -Wall -fno-second-underscore -fPIC -O3 -funroll-loops -march=opteron -mmmx -m3dnow -msse2 -msse -Ibuild/src.linux-x86_64-2.4 -I/usr/stsci/pyssg/Python-2.4.3/lib/python2.4/site-packages/numpy/core/include -I/usr/stsci/pyssg/Python-2.4.3/include/python2.4 -c -c build/src.linux-x86_64-2.4/PyMC/flib-f2pywrappers.f -o build/temp.linux-x86_64-2.4/PyMC/flib-f2pywrappers.o
 cd build/temp.linux-x86_64-2.4/build/src.linux-x86_64-2.4 
