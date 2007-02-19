@@ -13,19 +13,8 @@ import numarray
 
 from amoeba import fmin_simplex
 from DESolver import fmin_de
-
-#the mcmc depends on PyMC, which doesn't have to be installed
-have_mcmc=False
-try:
-    from mcmc import fmin_mcmc
-    have_mcmc=True
-except ImportError, inst:
-    if inst[0]=="No module named PyMC":
-        #this is ok, the PyMC is not found
-        pass
-    else:
-        #some other error, reraise
-        raise
+from mcmc import fmin_mcmc
+have_mcmc=mcmc.have_mcmc
 
 def reflect(y,l,u):
     """ Modulate x so that it cycles from l to u then back down again
