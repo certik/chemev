@@ -8,7 +8,8 @@ import numpy as numarray
 from chemev import iso,utils,optimization
 
 if not optimization.have_mcmc:
-    print "PyMC not installed correctly. Check PYTHONPATH."
+    print "PyMC not installed correctly. Check the PYTHONPATH."
+    print "PYTHONPATH=",sys.path
     sys.exit()
 
 print "reading isochrones"
