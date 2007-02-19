@@ -56,6 +56,8 @@ eval `~/chemev/env.py`
 Change the path to env.py according to your configuration. You can also put this
 line to your .bashrc file.
 
+Note: the env.py returns shell commands, that add the relevant paths to your PYTHONPATH (ensures that paths are not duplicated etc.). It automatically finds the chemev and pymc package (it assumes the pymc is installed in the same parent directory as chemev). This is necessary, because the exact path to PyMC depends on the architecture.
+
 Deprecated way:
 {{{
 cd chemev
