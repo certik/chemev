@@ -16,7 +16,7 @@ cd chemev
 
 (The ./unpack script will unpack all the isochrones)
 
-== Install PyMC (optional) ==
+=== Install PyMC (optional) ===
 
 Only install PyMC if you are going to use mcmc. Otherwise just skip this step.
 
@@ -47,7 +47,7 @@ Looks like a typo above...second & third commands should be the following, I thi
 cd build/temp.linux-x86_64-2.4/build/src
 }}}
 
-== Set your PYTHONPATH ==
+=== Set your PYTHONPATH ===
 
 PYTHONPATH needs to be set correctly. Execute:
 {{{
