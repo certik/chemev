@@ -50,11 +50,10 @@ PYTHONPATH needs to be set correctly. Execute:
 {{{
 eval `~/chemev/env.py`
 }}}
-Change the path to env.py according to your configuration. You can put this
+Change the path to env.py according to your configuration. You can also put this
 line to your .bashrc file.
 
-
-
+Deprecated way:
 {{{
 cd chemev
 source Dosetup
