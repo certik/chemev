@@ -1,5 +1,17 @@
 # This program assumes that PyMC are in PYTHONPATH
-import PyMC
+# Try to import it. The have_mcmc variable can be later used to check if we
+# succeeded.
+have_mcmc=False
+try:
+    import PyMC
+    have_mcmc=True
+except ImportError, inst:
+    if inst[0]=="No module named PyMC":
+        #this is ok, the PyMC is not found
+        pass
+    else:
+        #PyMC was found, but failed for some other reason, reraise
+        raise
 
 def fmin_mcmc(f,x0,callback=None):
     class MySampler(PyMC.MetropolisHastings):
