@@ -1,11 +1,8 @@
 import sys
-sys.path.append("../../utils")
 
 import numarray
 
-import iso
-import utils
-import optimization
+from chemev import iso,optimization,utils
 
 print "reading isochrones"
 #isodir="m31iso"

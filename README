@@ -11,7 +11,13 @@ License: GPL
 Installation and usage
 ======================
 
-To set your PYTHONPATH:
-source DoSetup  (edit path to PyMC if necessary)
+PYTHONPATH needs to be set correctly. Execute:
+
+eval `~/chemev/env.py`
+
+Change the path to env.py according to your configuration. You can put this
+line to your .bashrc file.
+
+More information at:
 
 See http://code.google.com/p/chemev/wiki/installation

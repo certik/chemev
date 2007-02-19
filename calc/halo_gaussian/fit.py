@@ -2,19 +2,14 @@
 
 #import cgitb; cgitb.enable(format="text")
 import sys
-sys.path.append("../../utils")
 import math
 from math import pi
 
-import pylab
 import numarray
 
-import bezier
-import iso
-import utils
-import optimization
-from utils import p2c
-from params import parameters
+from chemev import bezier,iso,utils,optimization,params
+from chemev.utils import p2c
+from chemev.params import parameters
 
 def metallicity(t,p):
     "Fe/H vs logage on the grid 't', calculated from 'params'"
@@ -83,4 +78,5 @@ def simul(isodir):
 
 if __name__ == "__main__":
     simul("../../isochrones/696/halo")
+    #import pylab
     #pylab.show()
