@@ -23,7 +23,7 @@ Only install PyMC if you are going to use mcmc. Otherwise just skip this step.
 Go to the directory where chemev is installed and:
 
 {{{
-wajig install python-numpy-dev python-matplotlib
+wajig install python-numpy-dev python-matplotlib python-tk
 svn checkout http://pymc.googlecode.com/svn/trunk/ pymc
 cd pymc
 python setup.py build
