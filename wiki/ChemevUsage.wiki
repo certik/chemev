@@ -13,4 +13,11 @@ It's kind of technical, as it is not really easy to get the best fit just by nai
 The best fit for halo, that Ondrej was ever able to achieve is around: -558,000
 Tom's best value: 8063.4943
 
-Now we are writing a script to get this result automatically.
+To calculate Ondrej's best fit using the simplex method:
+
+{{{
+cd chemev/calc/halosimplex-automatic/
+python 117isofit.py
+}}}
+
+and wait couple of hours. :) You'll get the bestfit of around 558,000 (~8400 in Tom's units).
