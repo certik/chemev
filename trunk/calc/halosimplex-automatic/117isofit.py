@@ -35,7 +35,8 @@ pars=[1.0]*117
 print "fitting"
 
 #this is the hardwired empirical key to achieve the best fit. :)
-best_fit_path = [1000, 20, 30]
+best_fit_path = [800, 1800, 1500, 2000]+ [2000]*100
+print "we are going to do this amount of iterations:",best_fit_path
 for iter in best_fit_path:
     print "### doing %d iterations ###"%iter
     pars=fitting_iteration(pars,iter)
