@@ -20,6 +20,6 @@ cd chemev/calc/halosimplex-automatic/
 python 117isofit.py
 }}}
 
-and wait couple of hours. :) You'll get the bestfit of around -558,000 (~8150 in Tom's units). 
+and wait couple of hours. :) You'll get the bestfit of around -558,000 (~8155 in Tom's units). 
 
-In the first 15 minutes, you'll get the likelihood of around -557938 (8279 in Tom's units), in 30 minutes: -557993.359481 tom: 8168.90782086, then in the following hours it progresses very slowly up to the -558000.
+In the first 15 minutes, you'll get the likelihood of around -557938 (8279 in Tom's units), in 30 minutes: -558000.460779 tom: 8154.70522397, then in the following hours it progresses very slowly up to the best fit, which is around 8063 in Tom's units.
