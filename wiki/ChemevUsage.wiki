@@ -20,4 +20,4 @@ cd chemev/calc/halosimplex-automatic/
 python 117isofit.py
 }}}
 
-and wait couple of hours. :) You'll get the bestfit of around 558,000 (~8400 in Tom's units).
+and wait couple of hours. :) You'll get the bestfit of around -558,000 (~8250 in Tom's units).
