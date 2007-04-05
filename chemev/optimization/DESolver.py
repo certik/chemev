@@ -497,7 +497,7 @@ class MySolver(DESolver):
     def computeenergy(self, trial):
         return self.func(logistic2real(trial,self.min,self.max))
 
-def fmin_de(f,min,max,callback=None):
+def fmin_de(f,min,max,callback=None,iter=None):
     solver = MySolver()
     solver.func=f
     solver.min=min
