@@ -1,0 +1,13 @@
+#summary This wiki describes how to achieve all our results with chemev.
+
+= Introduction =
+
+First install chemev using the installation instructions (see the main page).
+
+= 117-isochrone fit =
+
+This fits the CMD with a restricted set of 117 isochrones and we are interested in the best fit. 
+
+It's kind of technical, as it is not really easy to get the best fit just by naively executing some fittig algorithm. Some experience needs to be employed.
+
+Working on details....
