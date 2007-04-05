@@ -24,10 +24,10 @@ def fitting_iteration(pars,iter=10):
         print "bestfit in the file is:",f(bestfit[0])
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter,"norm:",C
 
-    #optimization.minc(optimization.fmin_scipy_l_bfgs_b,f,pars,callback=b,iter=iter)
-    x,fv,g= optimization.fmin_scipy_l_bfgs_b(f,pars,iter=iter)
-    b(x,fv,-1)
-    return x
+    optimization.minc(optimization.fmin_scipy_l_bfgs_b_old,f,pars,callback=b,iter=iter)
+    #x,fv,g= optimization.fmin_scipy_l_bfgs_b(f,pars,iter=iter)
+    #b(x,fv,-1)
+    #return x
 
 print "reading isochrones"
 data=iso.readfits(chemev.isodir+"/117/halo/datarr.fits")
