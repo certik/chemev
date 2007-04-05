@@ -21,10 +21,13 @@ def fitting_iteration(pars,iter=10):
         x=numarray.array(params)
         bestfit[0] = x*C
         file("bestfit117","w").write(str(list(bestfit[0])))
+        print "bestfit in the file is:",f(bestfit[0])
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter,"norm:",C
 
-    optimization.minc(optimization.fmin_scipy_l_bfgs_b,f,pars,callback=b,iter=iter)
-    return bestfit[0]
+    #optimization.minc(optimization.fmin_scipy_l_bfgs_b,f,pars,callback=b,iter=iter)
+    x,fv,g= optimization.fmin_scipy_l_bfgs_b(f,pars,iter=iter)
+    b(x,fv,-1)
+    return x
 
 print "reading isochrones"
 data=iso.readfits(chemev.isodir+"/117/halo/datarr.fits")
@@ -34,11 +37,9 @@ pars=[1.0]*117
 
 print "fitting"
 
-#this is the hardwired empirical key to achieve the best fit. :)
-best_fit_path = [800, 1800, 1500, 2000]+ [2000]*100
-print "we are going to do this amount of iterations:",best_fit_path
-for iter in best_fit_path:
-    print "### doing %d iterations ###"%iter
-    pars=fitting_iteration(pars,iter)
+#print pars
+pars=fitting_iteration(pars,iter=2000/119)
+#pars=fitting_iteration(pars,iter=10)
+#print pars
 
 print "done"
