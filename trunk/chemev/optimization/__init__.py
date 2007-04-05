@@ -13,6 +13,7 @@ import numarray
 
 from amoeba import fmin_simplex
 from DESolver import fmin_de
+from scipyoptimize import fmin_scipy_bfgs
 from mcmc import fmin_mcmc
 have_mcmc=mcmc.have_mcmc
 
