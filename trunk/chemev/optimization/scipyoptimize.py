@@ -22,4 +22,4 @@ def fmin_scipy_l_bfgs_b(f, x0, iter=100,callback=None):
         if callback:
             callback(xk, f(xk), -1)
 
-    optimize.fmin_l_bfgs_b(f, x0, approx_grad=True, iprint=1, callback = mycallback)
+    optimize.fmin_l_bfgs_b(f, x0, approx_grad=True, iprint=1)
