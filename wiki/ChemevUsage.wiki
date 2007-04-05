@@ -10,8 +10,7 @@ This fits the CMD with a restricted set of 117 isochrones and we are interested 
 
 It's kind of technical, as it is not really easy to get the best fit just by naively executing some fittig algorithm. Some experience needs to be employed.
 
-The best fit for halo, that Ondrej was ever able to achieve is around: -558,000
-Tom's best value: 8063.4943
+The best fit for halo, that Ondrej was able to achieve is around: -558,000 (~8140 in Tom's units). Tom's best value is 8063.4943.
 
 To calculate Ondrej's best fit using the simplex method:
 
