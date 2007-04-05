@@ -58,7 +58,7 @@ def real2logistic(x,min,max):
     """Converts the tuple 'x' from real to logistic"""
     return [fracinv(m,mi,ma) for m,mi,ma in zip(x,min,max)]
 
-def minmax(algorithm,f,pars,min,max,callback=None):
+def minmax(algorithm,f,pars,min,max,iter=100,callback=None):
     """ Optimize a function within min and max. The fitted parameters
         are a logistic function of the real parameters within min,max.
         So the optimization searches the range -infinity to infinity while
@@ -72,7 +72,7 @@ def minmax(algorithm,f,pars,min,max,callback=None):
     def newcallback(params,value,iter):
         x=logistic2real(params,min,max)
         return callback(x,value,iter)
-    r=algorithm(newf,real2logistic(pars,min,max),callback=newcallback)
+    r=algorithm(newf,real2logistic(pars,min,max),iter=iter,callback=newcallback)
     if r!=None:
         return logistic2real(r,min,max) 
 
@@ -87,8 +87,8 @@ def optimize(algorithm,f,pars,callback=None):
     if r!=None:
         return r
 
-def minc(algorithm,f,pars,callback=None):
+def minc(algorithm,f,pars,iter=100,callback=None):
     M=1.e7
     min=[0.]*len(pars)
     max=[M]*len(pars)
-    return minmax(algorithm,f,pars,min,max,callback)
+    return minmax(algorithm,f,pars,min,max,iter=iter,callback=callback)

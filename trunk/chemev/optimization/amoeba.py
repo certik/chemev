@@ -166,13 +166,13 @@ def amoeba(var,scale,func,ftolerance=1.e-4,xtolerance=1.e-4,itmax=500,data=None,
 #-----------------------------------------------
 #simple interface:
 
-def fmin_simplex(f,x0,callback=None):
+def fmin_simplex(f,x0,iter=100,callback=None):
     """minimises the function f using the simplex method"""
     def func(var,data=None):
         x= -f(var)
         return x
     #r= amoeba(list(x0),[1.0]*len(x0),func,callback=callback)
-    r= amoeba(list(x0),[20.0]*len(x0),func,itmax=10000,callback=callback)
+    r= amoeba(list(x0),[20.0]*len(x0),func,itmax=iter,callback=callback)
     #print "loglikelihood:",-r[1]
     #print "iterations:",r[2]
     return r[0] 
