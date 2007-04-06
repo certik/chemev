@@ -25,7 +25,7 @@ def approx_fprime(xk,f):
     #print xk
     return grad
 
-def fmin_scipy_bfgs(f, x0, iter=100,callback=None):
+def fmin_bfgs(f, x0, iter=100,callback=None):
     """Calls scipy L-BFGS optimizer (unconstrained).
     
     This is a superior unconstrained optimizer. Use it with our functions
@@ -59,7 +59,7 @@ def fmin_scipy_l_bfgs_b(f, x0, iter=100):
     
     This function works, but for some reason, using our own constrains using the
     logistics function converges faster (in my tests by a factor of 7), so
-    this function is here just for testing purposes. Use fmin_scipy_bfgs()
+    this function is here just for testing purposes. Use fmin_bfgs()
     instead.
     """
     try:
