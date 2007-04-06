@@ -4,7 +4,7 @@
 __version__ = "1.0.0"
 __author__ = "H. C. Ferguson & O. Certik, STScI"
 
-import numarray
+from numpy import array, maximum, log, sum
 import math
 
 def frange(start, end=None, inc=None):
@@ -50,16 +50,16 @@ def loglikelihood(model,data):
        For numerical reasons, we use -log(P):
        -log(P)=-sum over (i,j) of data[i,j]*log(model[i,j])
     """
-    floor=1.e-50; model = numarray.maximum(model,floor)
-    l = data*numarray.log(model) # l_ij = data_ij * log(model_ij)
+    floor=1.e-50; model = maximum(model,floor)
+    l = data*log(model) # l_ij = data_ij * log(model_ij)
     return -sum(l.flat) #sums all the elements of the 2D array "l"
 
 def tomslikelihood(model,data):
-    """l=2.*(model-data+data*numarray.log(data/model))
+    """l=2.*(model-data+data*log(data/model))
     return sum(l.flat)
     """
-    data = numarray.maximum(data,1e-20)
-    C=data*numarray.log(data)
+    data = maximum(data,1e-20)
+    C=data*log(data)
     return 2.0*(loglikelihood(model,data)+sum(C.flat))
 
 def tomslikelihood_orig(model,data):

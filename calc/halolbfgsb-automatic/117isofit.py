@@ -5,6 +5,8 @@ import numarray
 import chemev
 from chemev import iso,optimization,utils
 
+import time
+
 def fitting_iteration(pars,iter=10):
     bestfit = [None]
     ndata=sum(data.flat)
