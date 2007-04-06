@@ -130,3 +130,69 @@ def nudge(p):
     p.setvalues(p0)
     return
 
+def plot_residuals(d,m,aspect=0.2):
+    """
+    Plots 4 nice plots of: data, model, data-model, (data-model)/model
+
+    todo: the same color range for both data and model. the rediduals are ok
+    """
+    import pylab
+    pylab.figure()
+    pylab.subplot(221)
+    pylab.imshow(d,origin='lower',interpolation="nearest",aspect=aspect)
+    pylab.title("data")
+    pylab.colorbar()
+    pylab.subplot(222)
+    pylab.imshow(m,origin='lower',interpolation="nearest",aspect=aspect)
+    pylab.title("model")
+    pylab.colorbar()
+    pylab.subplot(223)
+    residuals = d-m
+    pylab.imshow(residuals,origin='lower',interpolation="nearest",aspect=aspect)
+    pylab.title("data-model")
+    pylab.colorbar()
+    pylab.subplot(224)
+    residuals = d-m
+    residuals /= m
+    pylab.imshow(residuals,origin='lower',interpolation="nearest",aspect=aspect)
+    pylab.title("(data-model)/model")
+    #pylab.cool()
+    #pylab.savefig("graph.eps")
+    pylab.colorbar()
+    pylab.savefig("graph.png")
+    #pylab.show()
+
+def plot_weights(w,isos,aspect=0.4, show=True):
+    """
+    Plots one graph: isochrone weights (metallicity vs age)
+    """
+    from chemev import iso
+    graph=iso.computefehage(w,isos)
+    import pylab
+    pylab.figure()
+    pylab.imshow(graph,origin='lower',interpolation="nearest",aspect=aspect)
+    pylab.title("isochrones weights")
+    #pylab.cool()
+    #pylab.savefig("graph.eps")
+    pylab.colorbar()
+    #pylab.savefig("graph-weights.png")
+    if show: pylab.show()
+
+def plot_sfr_metallicity(t, sfr_i, sfr, met_i, met, show=True):
+    """
+    Plots two graphs: metallicity vs age and sfr vs age
+    """
+    import pylab
+    pylab.figure()
+    pylab.subplot(121)
+    pylab.plot(t, met_i, label = "init")
+    pylab.plot(t, met, label = "final")
+    pylab.legend()
+    pylab.title("mettalicity vs age")
+    pylab.subplot(122)
+    pylab.plot(t, sfr_i, label = "init")
+    pylab.plot(t, sfr, label = "final")
+    pylab.legend()
+    pylab.title("sfr vs age")
+    pylab.legend()
+    if show: pylab.show()
