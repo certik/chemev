@@ -51,7 +51,7 @@ def fmin_bfgs(f, x0, iter=100,callback=None):
     #        maxiter = iter, callback = mycallback)
     #scipy's implementation of the bfgs converges much slower than the fortran's
     x,f,g = optimize.fmin_l_bfgs_b(f, x0, fprime = myprime,
-            iprint=1, maxfun=iter)
+            iprint=1, maxfun=iter, factr=10.0)
     return x
 
 def fmin_scipy_l_bfgs_b(f, x0, iter=100):
