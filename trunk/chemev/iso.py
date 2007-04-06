@@ -18,7 +18,7 @@ __author__ = "H. C. Ferguson & O. Certik, STScI"
 import glob
 import os
 
-from numpy import array
+from numpy import array, zeros
 import pyfits
 
 import utils
@@ -99,7 +99,7 @@ metallicities=[]
 ages=[]
 fehagemap={}
 def getn(feh,age,isos):
-    """ Figure out which isochrone corresponds to the inpu feh and age 
+    """ Figures out which isochrone corresponds to the input feh and age 
         and return the proper index into the isochrone list.
     """
     global metallicities,ages
@@ -217,11 +217,12 @@ def sumisos_vgauss(mass,age,metallicity,fehlist,agelist,isos,sigma,dsigmadlogt):
         summed_iso+=isoweight[k]*isos[k]
 #    p(isoweight)
     return summed_iso
+
 def computefehage(pars,isos):
     """computes the array of feh vs age for the isochrones weights: pars"""
     fehlist,agelist=getfehagelist(isos)
     #s = numarray.zeros((13,9))
-    s = numarray.zeros((len(fehlist),len(agelist)))
+    s = zeros((len(fehlist),len(agelist)))
     for i,k in enumerate(isos):
         x = searchsorted(fehlist,k[0])-1
         y = searchsorted(agelist,k[1])-1
