@@ -58,6 +58,7 @@ def simul(isodir):
     data=iso.readfits(isodir+"/datarr.fits")
     isos = iso.readisos(isodir)
     t=utils.frange(8,10.25,0.001)
+    ndata = sum(data.flat)
     def f(par):
         params.setvalues(par)
         w=utils.calculateweights(t,sfr(t,params))
@@ -65,7 +66,7 @@ def simul(isodir):
         #isow=iso.getisosweights_gauss(w,10.**t,metallicity(t,params),isos,
         #        params.sigma)
         m=iso.computeCMD(isow,isos)
-        m=utils.normalize(m,sum(data.flat))
+        m=utils.normalize(m,ndata)
         return utils.loglikelihood(m,data)
 
     d = maximum(data,1e-20)
@@ -75,10 +76,10 @@ def simul(isodir):
         params.save()
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter
 
-    optimization.minmax(optimization.fmin_bfgs,f,
-    #optimization.minmax(optimization.fmin_simplex,f,
+    #optimization.minmax(optimization.fmin_bfgs,f,
+    optimization.minmax(optimization.fmin_simplex,f,
             params.getvalues(),params.min(),params.max(),
-            callback=b, iter=20)
+            callback=b, iter=10)
 
 if __name__ == "__main__":
     simul(chemev.isodir+"/696/halo")
