@@ -1,6 +1,6 @@
 import sys
 
-import numarray
+from numpy import maximum, sum, log, array
 
 import chemev
 from chemev import iso,optimization,utils
@@ -12,13 +12,13 @@ def fitting_iteration(pars,iter=10):
         m=utils.normalize(iso.computeCMD(params,isos),ndata)
         return utils.loglikelihood(m,data)
 
-    d = numarray.maximum(data,1e-20)
-    llhC=sum( (d*numarray.log(d)).flat )
+    d = maximum(data,1e-20)
+    llhC=sum( (d*log(d)).flat )
     def b(params,value,iter):
         "Print status everytime a best fit is found."
         m=iso.computeCMD(params,isos)
         C=sum(data.flat)/sum(m.flat)
-        x=numarray.array(params)
+        x=array(params)
         bestfit[0] = x*C
         file("bestfit117","w").write(str(list(bestfit[0])))
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter,"norm:",C
