@@ -32,7 +32,11 @@ cd chemev/calc/halobfgs-automatic/
 python 117isofit.py
 }}}
 
-and wait 7 minutes (on intel core duo 2.4GHz). The result will be written to the bestfit117.
+and wait 7 minutes (on intel core duo 2.4GHz). The result will be written to the bestfit117. Then you can execute
+{{{
+./prot.py
+}}}
+to generate the pictures below.
 
 
 Here are the CMDs of the best fit:
