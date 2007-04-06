@@ -28,3 +28,7 @@ A superior method to simplex is a *BFGS* (http://en.wikipedia.org/wiki/BFGS_meth
 henry: -558047.711479 tom: 8060.20382375
 
 in less than 7 minutes.
+
+This is how the best fit looks like:
+
+http://chemev.googlecode.com/svn/trunk/calc/halobfgs-automatic/graph.png
