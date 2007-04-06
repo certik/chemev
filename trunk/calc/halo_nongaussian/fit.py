@@ -76,6 +76,7 @@ def simul(isodir):
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter
 
     optimization.minmax(optimization.fmin_bfgs,f,
+    #optimization.minmax(optimization.fmin_simplex,f,
             params.getvalues(),params.min(),params.max(),
             callback=b, iter=20)
 
