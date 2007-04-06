@@ -10,9 +10,9 @@ This fits the CMD with a restricted set of 117 isochrones and we are interested 
 
 It's kind of technical, as it is not really easy to get the best fit just by naively executing some fittig algorithm. Some experience needs to be employed.
 
-The best fit for halo, that Ondrej was able to achieve is around: -558,000 (~8140 in Tom's units). Tom's best value is 8063.4943.
+The best fit for halo, that Ondrej was able to achieve is: -558047.711479 (~8060.2 in Tom's units). Tom's best value is 8063.4943.
 
-To calculate Ondrej's best fit using the simplex method:
+To calculate the best fit using the *simplex* method:
 
 {{{
 cd chemev/calc/halosimplex-automatic/
@@ -21,4 +21,6 @@ python 117isofit.py
 
 and wait couple of hours. :) You'll get the bestfit of around -558,000 (~8155 in Tom's units). 
 
-In the first 15 minutes, you'll get the likelihood of around -557938 (8279 in Tom's units), in 30 minutes: -558000.460779 tom: 8154.70522397, then in the following hours it progresses very slowly up to the best fit, which is around 8063 in Tom's units.
+In the first 15 minutes, you'll get the likelihood of around -557938 (8279 in Tom's units), in 30 minutes: -558000.460779 tom: 8154.70522397, then in the following hours it progresses very slowly up to the best fit, which is around 8060 in Tom's units.
+
+A superior method to simplex is a *BFGS* (http://en.wikipedia.org/wiki/BFGS_method) method. Implemented by http://www.ece.northwestern.edu/~nocedal/lbfgsb.html. More on that later.
