@@ -13,7 +13,7 @@ The best fit for halo, that Ondrej was able to achieve is: -558047.711479 (~8060
 To calculate the best fit using the *simplex* method:
 
 {{{
-cd chemev/calc/halosimplex-automatic/
+cd chemev/calc/halosimplex/
 python 117isofit.py
 }}}
 
