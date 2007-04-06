@@ -40,8 +40,8 @@ to generate the pictures below.
 
 Here are the CMDs of the best fit:
 
-http://chemev.googlecode.com/svn/trunk/calc/halobfgs-automatic/graph.png
+http://chemev.googlecode.com/svn/trunk/calc/halobfgs/graph.png
 
 And the isochrones weights:
 
-http://chemev.googlecode.com/svn/trunk/calc/halobfgs-automatic/graph-weights.png
+http://chemev.googlecode.com/svn/trunk/calc/halobfgs/graph-weights.png
