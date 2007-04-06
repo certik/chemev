@@ -29,6 +29,10 @@ henry: -558047.711479 tom: 8060.20382375
 
 in less than 7 minutes.
 
-This is how the CMDs of the best fit look like:
+Here are the CMDs of the best fit:
 
 http://chemev.googlecode.com/svn/trunk/calc/halobfgs-automatic/graph.png
+
+And the isochrones weights:
+
+http://chemev.googlecode.com/svn/trunk/calc/halobfgs-automatic/graph-weights.png
