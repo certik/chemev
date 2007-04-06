@@ -3,8 +3,11 @@ from math import sqrt
 import time
 
 count = 0
-
 def approx_fprime(xk,f):
+    """
+    Calculates a gradient of f(xk) numerically.
+
+    """
     epsilon = sqrt(numpy.finfo(float).eps)
     t = time.time()
     #print "--1",len(xk)
@@ -23,11 +26,19 @@ def approx_fprime(xk,f):
     return grad
 
 def fmin_scipy_bfgs(f, x0, iter=100,callback=None):
-    """Calls scipy BFGS optimizer."""
+    """Calls scipy L-BFGS optimizer (unconstrained).
+    
+    This is a superior unconstrained optimizer. Use it with our functions
+    minmax or minc constrains to get constrained optimizing.
+
+    TODO: there is one unnecessary call to the f(xk) - one in mycallback() and
+    second in myprime() - so joining these two methods would spare us one call,
+    i.e. reducing 119 calls to 118 calls per BFGS iteration.
+    """
     try:
         from scipy import optimize
     except ImportError:
-        raise "SciPy is not installed, SciPy optimizers are not be available"
+        raise "SciPy is not installed, SciPy optimizers are not available"
 
     def mycallback(xk):
         if callback:
@@ -43,21 +54,14 @@ def fmin_scipy_bfgs(f, x0, iter=100,callback=None):
             iprint=1, maxfun=iter)
     return x
 
-def fmin_scipy_l_bfgs_b_old(f, x0, iter=100,callback=None):
-    """Calls scipy L-BFGS-B optimizer."""
-    try:
-        from scipy import optimize
-    except ImportError:
-        raise "SciPy is not installed, SciPy optimizers are not be available"
-
-    def mycallback(xk):
-        if callback:
-            callback(xk, f(xk), -1)
-
-    optimize.fmin_l_bfgs_b(f, x0, approx_grad=True, iprint=1)
-
 def fmin_scipy_l_bfgs_b(f, x0, iter=100):
-    """Calls scipy L-BFGS-B optimizer."""
+    """Calls scipy L-BFGS-B optimizer (constrained).
+    
+    This function works, but for some reason, using our own constrains using the
+    logistics function converges faster (in my tests by a factor of 7), so
+    this function is here just for testing purposes. Use fmin_scipy_bfgs()
+    instead.
+    """
     try:
         from scipy import optimize
     except ImportError:
