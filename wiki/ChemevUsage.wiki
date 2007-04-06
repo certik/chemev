@@ -23,4 +23,8 @@ and wait couple of hours. :) You'll get the bestfit of around -558,000 (~8155 in
 
 In the first 15 minutes, you'll get the likelihood of around -557938 (8279 in Tom's units), in 30 minutes: -558000.460779 tom: 8154.70522397, then in the following hours it progresses very slowly up to the best fit, which is around 8060 in Tom's units.
 
-A superior method to simplex is a *BFGS* (http://en.wikipedia.org/wiki/BFGS_method) method. Implemented by http://www.ece.northwestern.edu/~nocedal/lbfgsb.html. More on that later.
+A superior method to simplex is a *BFGS* (http://en.wikipedia.org/wiki/BFGS_method) method. Implemented by http://www.ece.northwestern.edu/~nocedal/lbfgsb.html. With this method, we can achieve the best fit
+
+henry: -558047.711479 tom: 8060.20382375
+
+in less than 7 minutes.
