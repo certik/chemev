@@ -25,7 +25,15 @@ A superior method to simplex is a *BFGS* (http://en.wikipedia.org/wiki/BFGS_meth
 
 henry: -558047.711479 tom: 8060.20382375
 
-in less than 7 minutes. _I'll put here the instructions soon._
+in less than 7 minutes:
+
+{{{
+cd chemev/calc/halobfgs-automatic/
+python 117isofit.py
+}}}
+
+and wait 7 minutes (on intel core duo 2.4GHz). The result will be written to the bestfit117.
+
 
 Here are the CMDs of the best fit:
 
