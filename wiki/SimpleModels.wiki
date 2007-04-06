@@ -1,0 +1,17 @@
+#summary This wiki summarizes all results we can get for simple models
+
+= Introduction =
+
+First install chemev using the installation instructions (see the main page).
+
+= Simple models =
+
+== non-gaussian ==
+
+Execute
+{{{
+cd chemev/calc/halo_nongaussian
+python fit.py
+}}}
+
+Currently, the simplex method works much better than bfgs. 
