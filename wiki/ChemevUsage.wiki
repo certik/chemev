@@ -27,7 +27,7 @@ henry: -558047.711479 tom: 8060.20382375
 in less than 7 minutes:
 
 {{{
-cd chemev/calc/halobfgs-automatic/
+cd chemev/calc/halobfgs/
 python 117isofit.py
 }}}
 
