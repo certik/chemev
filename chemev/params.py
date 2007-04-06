@@ -28,6 +28,19 @@ class parameters:
         if min==None or max==None:
             assert min==max
             assert not fit
+    def randomize(self):
+        """ Randomizes the values of all parameters.
+
+        Useful for checking that it converges to the best fit no matter what
+        the initial guess was.
+        """
+        def rand(min, max):
+            import random
+            return random.random()*(max-min)+min
+        for x in self.pars:
+            if self.pars[x][3]:
+                min,max = self.pars[x][1:3]
+                self.pars[x][0] = rand(min, max)
     def getvalues(self):
         """ Return the value of all the non-fixed parameters as a list """
         return [self.pars[x][0] for x in self.pars.keys() if

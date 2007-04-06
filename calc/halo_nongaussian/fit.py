@@ -76,11 +76,19 @@ def simul(isodir):
         params.save()
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter
 
+    #always try a different initial guess:
+    params.randomize()
+
+    sfr_initial = sfr(t,params)
+    met_initial = metallicity(t,params)
+
     #optimization.minmax(optimization.fmin_bfgs,f,
-    optimization.minmax(optimization.fmin_simplex,f,
+    pars=optimization.minmax(optimization.fmin_simplex,f,
             params.getvalues(),params.min(),params.max(),
-            callback=b, iter=10)
+            callback=b, iter=20)
+    params.setvalues(pars)
+    utils.plot_sfr_metallicity(t,sfr_initial, sfr(t,params),
+        met_initial, metallicity(t,params))
 
 if __name__ == "__main__":
     simul(chemev.isodir+"/696/halo")
-    #pylab.show()
