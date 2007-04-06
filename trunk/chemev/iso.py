@@ -5,7 +5,7 @@
         fm0832a110g340.fits -- [Fe/H] = -0.832, Age = 11.0 Gyr
           the 340 is a running index.
 
-    After reading, isochrones are stored in a fairly ugly structure:
+    After reading (readisos), isochrones are stored in a fairly ugly structure:
     a list of tuples, each of which has 
        (scaled metallicity, scaledage, isochrone)
     where scaled metallicity is an integer equal to [Fe/H] *1000,
@@ -18,7 +18,7 @@ __author__ = "H. C. Ferguson & O. Certik, STScI"
 import glob
 import os
 
-import numpy as numarray 
+from numpy import array
 import pyfits
 
 import utils
@@ -31,7 +31,8 @@ def readfits(filename):
     f = pyfits.open(filename)
     d = f[0].data
     f.close()
-    return d
+    #convert NumArray to NumPy
+    return array(d)
 
 def writefits(filename,data):
     """writes the 2D array 'data' to the fits file 'filename'"""
@@ -43,6 +44,9 @@ def readisos(isodir="m31iso"):
     
     returns a list of (scaledfeh,scaledage,iso) for each isochrone in the order
     of 'grp' number in the filename.
+    where scaled metallicity is an integer equal to [Fe/H] *1000,
+    scaled age is in uints of 10**8 years, 
+    and the isochrone is an array.
     """
     files = glob.glob(isodir+'/f*a*g*.fits')
     data=[0]*len(files)
@@ -54,7 +58,7 @@ def readisos(isodir="m31iso"):
         grp = int(f[11:14])
         assert grp>0
 #        assert grp<=117
-        data[grp-1]=(scaledfeh,scaledage,readfits(file))
+        data[grp-1]=(scaledfeh,scaledage,array(readfits(file)))
     return data
 
 def getfilename(grp,iso):
@@ -226,8 +230,15 @@ def computefehage(pars,isos):
 
 def computeCMD(pars,isos):
     """computes CMD using isochrones "iso" and corresponding weights "pars"."""
+    #pars = list(pars)
+    #print type(pars[0])
+    #stop
+    #t = time.time()
+    #print type(pars)
     s = 0.*isos[0][2]
     assert len(isos)==len(pars)
     for i,isochrone in enumerate(isos):
+        #print type(isochrone[2]), type(pars[i])
+        #s+=float(pars[i])*isochrone[2]
         s+=pars[i]*isochrone[2]
     return s

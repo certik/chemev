@@ -89,7 +89,7 @@ def optimize(algorithm,f,pars,callback=None):
     if r!=None:
         return r
 
-def minc(algorithm,f,pars,iter=100,callback=None):
+def minc(algorithm,f,pars,callback=None,iter=100):
     M=1.e7
     min=[0.]*len(pars)
     max=[M]*len(pars)
