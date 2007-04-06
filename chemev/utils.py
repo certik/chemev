@@ -4,7 +4,8 @@
 __version__ = "1.0.0"
 __author__ = "H. C. Ferguson & O. Certik, STScI"
 
-from numpy import array, maximum, log, sum
+sum_=sum
+from numpy import array, maximum, log, sum, concatenate
 import math
 
 def frange(start, end=None, inc=None):
@@ -20,7 +21,7 @@ def frange(start, end=None, inc=None):
         if inc > 0 and next >= end: break
         elif inc < 0 and next <= end: break
         L.append(next)
-    return numarray.array(L)
+    return array(L)
 
 def normalize(model,ndata):
     """ Return a model where the integral in the unmasked region is
@@ -84,8 +85,8 @@ def getdt(logt):
     x0 = -1.*slope+x[0]  #x0=0
     slope = x[n-1]-x[n-2]
     xn = slope + x[n-1]  #xn=5
-    xlo = numarray.concatenate((numarray.array([x0]),x)) #xlo=[0,1,2,3,4]
-    xhi = numarray.concatenate((x,numarray.array([xn]))) #xhi=[1,2,3,4,5]
+    xlo = concatenate((array([x0]),x)) #xlo=[0,1,2,3,4]
+    xhi = concatenate((x,array([xn]))) #xhi=[1,2,3,4,5]
     midpts = (xhi+xlo)/2.  #midpts=[ 0.5,  1.5,  2.5,  3.5,  4.5]
     linear_midpts = 10.**midpts #=[3.16, 31.62, 316.22, 3162.27, 31622.77]
     dx = abs(linear_midpts[1:]-linear_midpts[:-1]) #[28.4,284.6,2846.0,28460.4]
@@ -106,7 +107,7 @@ def calculateweights(t,sfr):
     #normalize - sum(w) = 1, so the total amount of stars in the field is 1.0
     #w(t) is the amount of new stars in the time bin around t, so
     #the sum w(t) over all t is the total amount of stars. 
-    w = w0/sum(w0) 
+    w = w0/sum_(w0) 
 
 #    sfrate = w/dt
 #    sfrate = sfrate/sfrate.mean()

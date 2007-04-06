@@ -1,20 +1,17 @@
 #!/usr/bin/env python
 
 #import cgitb; cgitb.enable(format="text")
-import sys
-sys.path.append("../../utils")
 import math
 from math import pi
 
 import pylab
-import numarray
+from numpy import array, maximum, log, sum
 
-import bezier
-import iso
-import utils
-import optimization
-from utils import p2c
-from params import parameters
+import chemev
+from chemev import bezier, iso, utils, optimization
+from chemev.utils import p2c
+from chemev.params import parameters
+
 
 def metallicity(t,p):
     "Fe/H vs logage on the grid 't', calculated from 'params'"
@@ -54,8 +51,8 @@ def simul(isodir):
     params.set("s2y"   ,0.89, 0,2,True)
     params.set("s2cphi",3.04,   pi/2+eps,pi-eps,True)
     params.set("s2cr"  ,0.001,   0,2,True)
-    if len(sys.argv) == 2: #run with a param to start from the beginning
-        params.save()
+    #if len(sys.argv) == 2: #run with a param to start from the beginning
+    params.save()
     params.load()
 
     data=iso.readfits(isodir+"/datarr.fits")
@@ -71,16 +68,17 @@ def simul(isodir):
         m=utils.normalize(m,sum(data.flat))
         return utils.loglikelihood(m,data)
 
-    d = numarray.maximum(data,1e-20)
-    llhC=sum( (d*numarray.log(d)).flat )
+    d = maximum(data,1e-20)
+    llhC=sum( (d*log(d)).flat )
     def b(par,value,iter):
         params.setvalues(par)
         params.save()
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter
 
-    optimization.minmax(optimization.fmin_simplex,f,
-            params.getvalues(),params.min(),params.max(),b)
+    optimization.minmax(optimization.fmin_bfgs,f,
+            params.getvalues(),params.min(),params.max(),
+            callback=b, iter=20)
 
 if __name__ == "__main__":
-    simul("/home/ondrej/data/isochrones/696/halo")
+    simul(chemev.isodir+"/696/halo")
     #pylab.show()
