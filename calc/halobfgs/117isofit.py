@@ -27,7 +27,7 @@ def fitting_iteration(pars,iter=10):
         file("bestfit117","w").write(str(list(bestfit[0])))
         print "henry:",value,"tom:",2.0*(value+llhC),"iter:",iter,"norm:",C
 
-    a= optimization.minc(optimization.fmin_scipy_bfgs,f,pars,callback=b,iter=iter)
+    a= optimization.minc(optimization.fmin_bfgs,f,pars,callback=b,iter=iter)
     b(a, f(a), -1)
     return a
 
