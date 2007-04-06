@@ -8,8 +8,6 @@ First install chemev using the installation instructions (see the main page).
 
 This fits the CMD with a restricted set of 117 isochrones and we are interested in the best fit. 
 
-It's kind of technical, as it is not really easy to get the best fit just by naively executing some fittig algorithm. Some experience needs to be employed.
-
 The best fit for halo, that Ondrej was able to achieve is: -558047.711479 (~8060.2 in Tom's units). Tom's best value is 8063.4943.
 
 To calculate the best fit using the *simplex* method:
@@ -27,7 +25,7 @@ A superior method to simplex is a *BFGS* (http://en.wikipedia.org/wiki/BFGS_meth
 
 henry: -558047.711479 tom: 8060.20382375
 
-in less than 7 minutes.
+in less than 7 minutes. _I'll put here the instructions soon._
 
 Here are the CMDs of the best fit:
 
