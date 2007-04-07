@@ -257,3 +257,36 @@ henry: -547935.832462 tom: 28283.9618585 iter: 276
 }}}
 
 and get's stuck again.
+
+== Differential evolution ==
+
+run 1:
+
+{{{
+ondra@pc232:~/chemev/calc/halo_nongaussian-de$ ./fit.py
+start
+henry: 1e+20 tom: 2e+20 iter: 1
+henry: -498839.401363 tom: 126476.824056 iter: 2
+henry: -511176.711402 tom: 101802.203978 iter: 4
+henry: -528132.817883 tom: 67889.9910153 iter: 5
+henry: -544040.779415 tom: 36074.0679517 iter: 8
+henry: -547537.431215 tom: 29080.7643532 iter: 36
+henry: -548005.107823 tom: 28145.4111363 iter: 48
+henry: -548696.808909 tom: 26762.0089642 iter: 203
+henry: -548776.309903 tom: 26603.0069772 iter: 471
+henry: -548877.588222 tom: 26400.4503378 iter: 649
+henry: -549544.188828 tom: 25067.2491258 iter: 1618
+}}}
+
+run 2:
+{{{
+ondra@pc232:~/chemev/calc/halo_nongaussian-de$ ./fit.py
+start
+henry: 1e+20 tom: 2e+20 iter: 1
+henry: -525756.279912 tom: 72643.066958 iter: 2
+henry: -538642.076633 tom: 46871.4735154 iter: 3
+henry: -546073.015773 tom: 32009.5952364 iter: 47
+henry: -547267.375993 tom: 29620.8747971 iter: 145
+henry: -547584.670017 tom: 28986.2867492 iter: 481
+henry: -549162.128186 tom: 25831.3704102 iter: 497
+}}}
