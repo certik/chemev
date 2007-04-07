@@ -293,3 +293,7 @@ henry: -549162.128186 tom: 25831.3704102 iter: 497
 = Conclusion =
 
 All the methods fail except simplex and DE. Even simplex get's stuck however quite soon, so only DE seems to produce likelihoods around -550000 reliably in each run.
+
+My experience with all the other algorithms (besides DE) so far is that the random initial parameters have some likelihood and then the optimization algorithm just improves a very little bit. And the next time I run the optimization, the initial random values can easily have much bigger likelihood than the previous run ever achieved. 
+
+The only explanation is that there are many local minima and all the algorithms just get stuck in the nearest. 
