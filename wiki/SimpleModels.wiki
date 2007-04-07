@@ -36,9 +36,10 @@ iteration: likelihood
 81: -541088.061026
 241: -544192.5148
 447: -546756.018438
+28092: -546783.139839
 }}}
 
-After this, it won't improve more (even in an hour).
+As you can see, it converges worse than exponentially, so it's completely inneficient.
 
 == bfgs ==
 
