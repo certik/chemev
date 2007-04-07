@@ -14,4 +14,4 @@ cd chemev/calc/halo_nongaussian
 python fit.py
 }}}
 
-Currently, the simplex method works much better than bfgs. 
+Currently, the simplex method works much better than bfgs. Both for ExpLogistics and ReflectLogistics the bfgs is slower.
