@@ -3,6 +3,7 @@
 import cgitb; cgitb.enable(format="text")
 import math
 from math import pi
+import time
 
 import pylab
 from numpy import array, maximum, log, sum
@@ -60,14 +61,15 @@ def simul(isodir):
     t=utils.frange(8,10.25,0.001)
     ndata = sum(data.flat)
     def f(params):
-        #params.setvalues(par)
         w=utils.calculateweights(t,sfr(t,params))
         isow=iso.getisosweights(w,10.**t,metallicity(t,params),isos)
-        #isow=iso.getisosweights_gauss(w,10.**t,metallicity(t,params),isos,
-        #        params.sigma)
+        #a3=time.time()
         m=iso.computeCMD(isow,isos)
+        #a4=time.time()
         m=utils.normalize(m,ndata)
-        return utils.loglikelihood(m,data)
+        l= utils.loglikelihood(m,data)
+        #print a4-a3
+        return l
 
     d = maximum(data,1e-20)
     llhC=sum( (d*log(d)).flat )
@@ -82,7 +84,10 @@ def simul(isodir):
     while 1:
         it += 1
         params.randomize()
+        #ti = time.time()
         r = f(params)
+        #ti -= time.time()
+        #print "time:",ti
         if r < bestfit[1]:
             bestfit = (params.getvalues(), r)
             print "%d:"%it, r
