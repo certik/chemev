@@ -146,4 +146,9 @@ At iterate   20    f= -5.21302E+05    |proj g|=  1.91406E+00
 --grad 36: 2.36251091957
 
 At iterate   21    f= -5.21302E+05    |proj g|=  8.12500E-01
+
+....
+
+At iterate   54    f= -5.21368E+05    |proj g|=  2.65625E-01
+
 }}}
