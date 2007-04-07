@@ -89,7 +89,7 @@ def simul(isodir):
     #ReflectLogistics.fracinv()
     #- let the simplex method restart automatically
 
-    for iter in [50]*100:
+    for iter in [50]*6+[100]*6+[500]*6+[1500]*100:
         print "### doing %d iterations ###"%iter
     #pars=optimization.minmax(optimization.fmin_bfgs,
         pars=optimization.minmax(optimization.fmin_simplex,
