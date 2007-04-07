@@ -16,6 +16,6 @@ python fit.py
 
 Currently, the simplex method works much better than bfgs. Both for !ExpLogistics and !ReflectLogistics the bfgs is slower.
 
-Change the parameter `iter` at line 88 from 5 to something bigger, like 50 or 100 to get a better fit. The initial values of all parameters are randomized, so you can rerun the fit manytimes to see how it converges. 
+Change the parameter `iter` at line 88 from 5 to something bigger, like 50 or 100 to get a better fit. The initial values of all parameters are randomized, so you can rerun the fit many times to see how it converges. 
 
 At the end it will print "metallicity vs age" and "sfr vs age" for both the (random) initial state and the converged fit.
