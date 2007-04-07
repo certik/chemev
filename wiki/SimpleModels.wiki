@@ -152,3 +152,5 @@ At iterate   21    f= -5.21302E+05    |proj g|=  8.12500E-01
 At iterate   54    f= -5.21368E+05    |proj g|=  2.65625E-01
 
 }}}
+
+As you can see, it's very important where the fit starts.
