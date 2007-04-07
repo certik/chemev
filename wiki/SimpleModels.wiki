@@ -21,3 +21,46 @@ Change the parameter `iter` at line 88 from 5 to something bigger, like 50 or 10
 At the end it will print "metallicity vs age" and "sfr vs age" for both the (random) initial state and the converged fit.
 
 I also tried simulated annealing, with no more success. It's slower than simplex. And simplex by itself is terribly slow and gets stuck at a different "fit" every time. But the annealing and bfgs behaves even worse.... Well, ill defined problem.
+
+== brute force ==
+
+By trying random values of all parameters in all iterations, the best fit is:
+
+{{{
+iteration: likelihood
+
+1: -530468.700881
+3: -533037.766045
+14: -536549.618184
+22: -540911.195635
+81: -541088.061026
+241: -544192.5148
+447: -546756.018438
+}}}
+
+== bfgs ==
+
+The best fit was:
+{{{
+At iterate   12    f= -5.49110E+05    |proj g|=  7.97344E+01
+--grad 17: 3.84748005867
+--grad 18: 3.83931493759
+
+At iterate   13    f= -5.49122E+05    |proj g|=  8.76562E+01
+--grad 19: 3.90191888809
+
+At iterate   14    f= -5.49128E+05    |proj g|=  9.49688E+01
+
+.....
+
+At iterate   26    f= -5.49200E+05    |proj g|=  1.48344E+02
+--grad 36: 3.83281207085
+
+At iterate   27    f= -5.49205E+05    |proj g|=  1.71609E+02
+--grad 37: 3.84526515007
+
+At iterate   28    f= -5.49211E+05    |proj g|=  7.54453E+01
+
+}}}
+
+And some other run:
