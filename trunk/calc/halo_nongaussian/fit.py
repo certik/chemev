@@ -93,12 +93,12 @@ def simul(isodir):
     pars=optimization.minmax(optimization.fmin_simplex,
     #pars=optimization.minmax(optimization.fmin_anneal,
             f,params.getvalues(),params.min(),params.max(),
-            callback=b, iter=10, 
+            callback=b, iter=100, 
             #logistics = optimization.ReflectLogistics)
             logistics = optimization.ExpLogistics)
-    params.setvalues(pars)
-    utils.plot_sfr_metallicity(t,sfr_initial, sfr(t,params),
-        met_initial, metallicity(t,params))
+    #params.setvalues(pars)
+    #utils.plot_sfr_metallicity(t,sfr_initial, sfr(t,params),
+    #    met_initial, metallicity(t,params))
 
 if __name__ == "__main__":
     simul(chemev.isodir+"/696/halo")
