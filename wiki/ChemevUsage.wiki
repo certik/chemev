@@ -60,6 +60,8 @@ python 117isofit.py
 
 producing:
 
+henry: -379747.404264 tom: 7027.64661303
+
 and
 {{{
 cd /chemev/calc/streambfgs/
