@@ -323,6 +323,27 @@ henry: -550158.23985 tom: 23839.147082 iter: 2305
 
 henry: -551943.591426 tom: 20268.4439306 iter: 6593
 henry: -552347.346376 tom: 19460.9340311 iter: 6622
+
+...
+
+henry: -552969.649553 tom: 18216.3276771 iter: 11714
+henry: -552978.195681 tom: 18199.2354195 iter: 12965
+}}}
+
+run 4:
+{{{ondra@pc232:~/chemev/calc/halo_nongaussian-de$ ./fit.py
+start
+henry: 1e+20 tom: 2e+20 iter: 1
+henry: -510979.936703 tom: 102195.753377 iter: 2
+henry: -541364.039692 tom: 41427.5473974 iter: 6
+henry: -541750.975982 tom: 40653.674818 iter: 18
+henry: -544609.631485 tom: 34936.3638115 iter: 28
+henry: -545714.583977 tom: 32726.4588278 iter: 30
+
+...
+
+henry: -552164.674221 tom: 19826.2783401 iter: 8574
+henry: -552260.915492 tom: 19633.7957986 iter: 8986
 }}}
 
 = Conclusion =
