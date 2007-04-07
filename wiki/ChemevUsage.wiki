@@ -69,3 +69,5 @@ python 117isofit.py
 }}}
 
 producing:
+
+henry: -220554.820055 tom: 6767.81391931
