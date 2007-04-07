@@ -170,4 +170,23 @@ cd chemev/calc/halo_nongaussian-simplex
 ./fit.py
 }}}
 
-and wait a long time. This should in theory converge to the best result.
+and wait a long time. This should in theory converge to the best result. Example:
+
+{{{
+ondra@pc232:~/chemev/calc/halo_nongaussian-simplex$ ./fit.py
+start
+### doing 50 iterations ###
+henry: -544065.970737 tom: 36023.6853091 iter: 1
+henry: -544403.078988 tom: 35349.4688061 iter: 5
+henry: -544443.504214 tom: 35268.6183546 iter: 6
+henry: -545170.267874 tom: 33815.0910338 iter: 7
+henry: -545187.669986 tom: 33780.2868111 iter: 8
+henry: -545194.184236 tom: 33767.2583096 iter: 9
+henry: -545195.242143 tom: 33765.1424964 iter: 13
+henry: -545331.446369 tom: 33492.7340444 iter: 14
+henry: -545523.729272 tom: 33108.1682389 iter: 15
+
+...... (an hour) :)
+
+
+}}}
