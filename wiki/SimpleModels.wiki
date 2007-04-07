@@ -297,3 +297,5 @@ All the methods fail except simplex and DE. Even simplex get's stuck however qui
 My experience with all the other algorithms (besides DE) so far is that the random initial parameters have some likelihood and then the optimization algorithm just improves a very little bit. And the next time I run the optimization, the initial random values can easily have much bigger likelihood than the previous run ever achieved. 
 
 The only explanation is that there are many local minima and all the algorithms just get stuck in the nearest. 
+
+The problem (simple models) seems to be ill defined  - which means, that sophisticated algorithms like bfgs totally fail. The simpler the algorithm, the better. 
