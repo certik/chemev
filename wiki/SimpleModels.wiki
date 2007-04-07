@@ -301,7 +301,14 @@ henry: -550183.428008 tom: 23788.7707664 iter: 3259
 
 henry: -551437.27611 tom: 21281.0745622 iter: 11325
 henry: -551439.376299 tom: 21276.8741849 iter: 11350
+
+...
+
+henry: -552068.774891 tom: 20018.0769998 iter: 54183
+henry: -552068.781909 tom: 20018.0629643 iter: 54668
+henry: -552068.783604 tom: 20018.0595735 iter: 54790
 }}}
+(this run is a little bit slower than the other ones, but important is that it converges by itself)
 
 run 3:
 {{{
