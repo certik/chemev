@@ -197,3 +197,29 @@ henry: -546018.373784 tom: 32118.8792141 iter: 31
 henry: -546018.373784 tom: 32118.8792144 iter: 1
 henry: -546018.373784 tom: 32118.8792141 iter: 3
 }}}
+
+another run:
+
+{{{
+ondra@pc232:~/chemev/calc/halo_nongaussian-simplex$ ./fit.py
+start
+### doing 50 iterations ###
+henry: -540008.864984 tom: 44137.8968152 iter: 1
+henry: -543091.530887 tom: 37972.5650075 iter: 4
+henry: -543970.689458 tom: 36214.2478655 iter: 6
+henry: -544133.629978 tom: 35888.3668255 iter: 8
+henry: -544627.462267 tom: 34900.7022488 iter: 10
+henry: -544747.295892 tom: 34661.0349991 iter: 12
+henry: -544900.060329 tom: 34355.5061237 iter: 14
+henry: -544910.560695 tom: 34334.5053924 iter: 33
+henry: -544910.821713 tom: 34333.9833556 iter: 41
+henry: -544913.202733 tom: 34329.2213162 iter: 43
+### doing 50 iterations ###
+henry: -545748.426824 tom: 32658.7731338 iter: 1
+henry: -546296.075175 tom: 31563.476432 iter: 2
+henry: -546603.851813 tom: 30947.9231555 iter: 3
+henry: -546606.089162 tom: 30943.4484587 iter: 7
+henry: -546639.651301 tom: 30876.3241812 iter: 11
+
+...
+}}}
