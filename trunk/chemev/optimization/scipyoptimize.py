@@ -79,3 +79,34 @@ def fmin_scipy_l_bfgs_b(f, x0, iter=100):
     x,f,g = optimize.fmin_l_bfgs_b(f, x0, fprime = myprime, bounds = b, #approx_grad=True,
             iprint=1, maxfun=iter)
     return x,f,g
+
+def fmin_anneal(f, x0, iter=100,callback=None):
+    """Calls scipy simulated annealing optimizer (unconstrained).
+    
+    """
+    try:
+        from scipy import optimize
+    except ImportError:
+        raise "SciPy is not installed, SciPy optimizers are not available"
+
+    global bestsol, it
+    bestsol = (x0, f(x0))
+    it = 0
+    def myf(x):
+        global it, bestsol
+        it += 1
+        r= f(x)
+        if r < bestsol[1]:
+            bestsol = (x, r)
+            print "%d:"%it,r
+        return r
+
+    M=1.e7
+    M = 5
+    min=[-M]*len(x0)
+    max=[M]*len(x0)
+
+    x, retval = optimize.anneal(myf, x0, 
+            lower = min, upper = max, maxiter = iter, schedule = "fast")
+    print "retval", retval
+    return x
