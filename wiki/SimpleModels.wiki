@@ -331,7 +331,8 @@ henry: -552978.195681 tom: 18199.2354195 iter: 12965
 }}}
 
 run 4:
-{{{ondra@pc232:~/chemev/calc/halo_nongaussian-de$ ./fit.py
+{{{
+ondra@pc232:~/chemev/calc/halo_nongaussian-de$ ./fit.py
 start
 henry: 1e+20 tom: 2e+20 iter: 1
 henry: -510979.936703 tom: 102195.753377 iter: 2
