@@ -261,7 +261,6 @@ and get's stuck again.
 == Differential evolution ==
 
 run 1:
-
 {{{
 ondra@pc232:~/chemev/calc/halo_nongaussian-de$ ./fit.py
 start
@@ -290,3 +289,7 @@ henry: -547267.375993 tom: 29620.8747971 iter: 145
 henry: -547584.670017 tom: 28986.2867492 iter: 481
 henry: -549162.128186 tom: 25831.3704102 iter: 497
 }}}
+
+= Conclusion =
+
+All the methods fail except simplex and DE. Even simplex get's stuck however quite soon, so only DE seems to produce likelihoods around -550000 reliably in each run.
