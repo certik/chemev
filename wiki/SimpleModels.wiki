@@ -19,3 +19,5 @@ Currently, the simplex method works much better than bfgs. Both for !ExpLogistic
 Change the parameter `iter` at line 88 from 5 to something bigger, like 50 or 100 to get a better fit. The initial values of all parameters are randomized, so you can rerun the fit many times to see how it converges. 
 
 At the end it will print "metallicity vs age" and "sfr vs age" for both the (random) initial state and the converged fit.
+
+I also tried simulated annealing, with no more success. It's slower than simplex. And simplex by itself is terribly slow and gets stuck at a different "fit" every time. But the annealing and bfgs behaves even worse.... Well, ill defined problem.
