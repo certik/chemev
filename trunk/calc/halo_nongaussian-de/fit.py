@@ -89,16 +89,14 @@ def simul(isodir):
     #ReflectLogistics.fracinv()
     #- let the simplex method restart automatically
 
-    for iter in [50]*3+[100]*3+[500]*3+[1500]*100:
-        print "### doing %d iterations ###"%iter
     #pars=optimization.minmax(optimization.fmin_bfgs,
-        pars=optimization.minmax(optimization.fmin_simplex,
+    pars=optimization.minmax(optimization.fmin_simplex,
     #pars=optimization.minmax(optimization.fmin_anneal,
             f,params.getvalues(),params.min(),params.max(),
-            callback=b, iter=iter, 
+            callback=b, iter=100, 
             #logistics = optimization.ReflectLogistics)
             logistics = optimization.ExpLogistics)
-        params.setvalues(pars)
+    #params.setvalues(pars)
     #utils.plot_sfr_metallicity(t,sfr_initial, sfr(t,params),
     #    met_initial, metallicity(t,params))
 
