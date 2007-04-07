@@ -38,6 +38,8 @@ iteration: likelihood
 447: -546756.018438
 }}}
 
+After this, it won't improve more (even in an hour).
+
 == bfgs ==
 
 The best fit was:
