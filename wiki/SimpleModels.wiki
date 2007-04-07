@@ -163,4 +163,11 @@ henry: -551150.262225 tom: 21855.1023329 iter: 98
 henry: -551150.641107 tom: 21854.3445692 iter: 99
 }}}
 
-So simplex is the best method, but it needs to be restarted.
+So simplex is the best method, but it needs to be restarted:
+
+{{{
+cd chemev/calc/halo_nongaussian-simplex
+./fit.py
+}}}
+
+and wait a long time. This should in theory converge to the best result.
