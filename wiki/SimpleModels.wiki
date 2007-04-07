@@ -24,7 +24,7 @@ I also tried simulated annealing, with no more success. It's slower than simplex
 
 == brute force ==
 
-By trying random values of all parameters in all iterations, the best fit is:
+By trying random values of all parameters in every iteration, the best fit is:
 
 {{{
 iteration: likelihood
