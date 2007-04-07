@@ -153,4 +153,49 @@ At iterate   54    f= -5.21368E+05    |proj g|=  2.65625E-01
 
 }}}
 
+another run:
+{{{
+At iterate    0    f= -5.24782E+05    |proj g|=  4.98662E+03
+--grad 2: 3.83779811859
+--grad 3: 3.84446811676
+
+At iterate    1    f= -5.43362E+05    |proj g|=  4.57234E+02
+--grad 4: 3.85416007042
+
+At iterate    2    f= -5.43630E+05    |proj g|=  3.54672E+02
+--grad 5: 3.82967615128
+--grad 6: 3.82982206345
+
+At iterate    3    f= -5.44465E+05    |proj g|=  8.15812E+02
+--grad 7: 3.83754587173
+
+At iterate    4    f= -5.45047E+05    |proj g|=  2.27594E+02
+--grad 8: 3.8793900013
+
+At iterate    5    f= -5.45285E+05    |proj g|=  1.76641E+02
+--grad 9: 3.94127392769
+
+At iterate    6    f= -5.45864E+05    |proj g|=  3.42586E+02
+--grad 10: 3.85983896255
+
+At iterate    7    f= -5.46092E+05    |proj g|=  1.52156E+02
+--grad 11: 3.86076903343
+
+At iterate    8    f= -5.46134E+05    |proj g|=  1.09000E+02
+--grad 12: 3.87158107758
+--grad 13: 3.86613893509
+
+At iterate    9    f= -5.46179E+05    |proj g|=  7.53672E+01
+--grad 14: 3.89118099213
+
+At iterate   10    f= -5.46205E+05    |proj g|=  3.92812E+01
+--grad 15: 3.93909406662
+
+At iterate   11    f= -5.46234E+05    |proj g|=  7.69453E+01
+
+....
+
+At iterate   38    f= -5.46308E+05    |proj g|=  3.76484E+01
+}}}
+
 As you can see, it's very important where the fit starts.
