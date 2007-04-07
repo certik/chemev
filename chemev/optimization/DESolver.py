@@ -14,11 +14,11 @@
 ##                      Birmingham, Alabama USA
 ##                      zunzun@zunzun.com
 ##
-
-# Changed, fixed old python style and added a function
-#def fmin_de(f,min,max):
-#which minimises function "f", between min and max.
-#2006 Ondrej Certik, STScI
+## 2006,2007 Ondrej Certik, STScI (ondrej@certik.cz):
+## Adapted to SciPy interface, fixed old python style, added a function
+##   def fmin_de(f,x0):
+## which does unconstrained minimisation of a function "f", with an initial
+## guess x0
 
 ##The code is public domain, from the email from James Phillips:
 ##  As far as I know it is public domain.  You may certainly
@@ -437,8 +437,7 @@ class DESolver:
         if self.oldbestenergy!=self.bestEnergy:
             self.oldbestenergy=self.bestEnergy
             if self.callback:
-                self.callback(logistic2real(self.bestSolution,self.min,
-                    self.max),self.bestEnergy,self.count)
+                self.callback(self.bestSolution,self.bestEnergy,self.count)
         # self.count is per evaluation, self.count % nPop is per self.generation
         if (self.count-1)%self.nPop == 0:
             self.generation = self.count / self.nPop
@@ -476,37 +475,14 @@ class DESolver:
 #-----------------------------------------------
 #simple interface:
 
-def frac(a,x0,x1): 
-    """varies gracefully from x0 to x1 for -inf < a < inf"""
-    return x0-logistic(a)*(x0-x1)
-def logistic(x):
-    if x<-500:
-        #raise "exp(x) too large, x=%d"%(-x)
-        return 0.
-    return 1./(1.+math.exp(-x))
-
-def logistic2real(x,min,max):
-    """Converts the tuple 'x' from logistic to real"""
-    p=[]
-    for i in range(len(x)):
-        p.append(frac(x[i],min[i],max[i]))
-    return p
-
-class MySolver(DESolver):
-
-    def computeenergy(self, trial):
-        return self.func(logistic2real(trial,self.min,self.max))
-
-def fmin_de(f,min,max,callback=None,iter=None):
+def fmin_de(f,x0,callback=None,iter=None):
+    class MySolver(DESolver):
+        def computeenergy(self, trial):
+            return f(trial)
     solver = MySolver()
-    solver.func=f
-    solver.min=min
-    solver.max=max
     range=5.
-    solver.Setup([-range]*len(min),[range]*len(min),stBest1Exp,0.9,1.0)
-    #solver.cutoffEnergy=0.005
+    solver.Setup(x0,[-range]*len(x0),[range]*len(x0),stBest1Exp,0.9,1.0)
     solver.cutoffEnergy=-1e6
     solver.callback=callback
-    print "Calculating...\n"
     solver.Solve()
-    return logistic2real(solver.bestSolution,solver.min,solver.max)
+    return solver.bestSolution

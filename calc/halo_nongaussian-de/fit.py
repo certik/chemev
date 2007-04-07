@@ -83,14 +83,9 @@ def simul(isodir):
     met_initial = metallicity(t,params)
 
     print "start"
-    #todo:
-    #- the reflectlogistics randomizes the parameters once more, thus
-    #the sfr_initial and met_initial is nonsense then. fix it in 
-    #ReflectLogistics.fracinv()
-    #- let the simplex method restart automatically
 
     #pars=optimization.minmax(optimization.fmin_bfgs,
-    pars=optimization.minmax(optimization.fmin_simplex,
+    pars=optimization.minmax(optimization.fmin_de,
     #pars=optimization.minmax(optimization.fmin_anneal,
             f,params.getvalues(),params.min(),params.max(),
             callback=b, iter=100, 
