@@ -82,10 +82,10 @@ def simul(isodir):
     sfr_initial = sfr(t,params)
     met_initial = metallicity(t,params)
 
-    #optimization.minmax(optimization.fmin_bfgs,f,
+    #pars=optimization.minmax(optimization.fmin_bfgs,f,
     pars=optimization.minmax(optimization.fmin_simplex,f,
             params.getvalues(),params.min(),params.max(),
-            callback=b, iter=20)
+            callback=b, iter=5, logistics = optimization.ReflectLogistics)
     params.setvalues(pars)
     utils.plot_sfr_metallicity(t,sfr_initial, sfr(t,params),
         met_initial, metallicity(t,params))
