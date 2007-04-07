@@ -43,7 +43,7 @@ As you can see, it converges worse than exponentially, so it's completely innefi
 
 == bfgs ==
 
-The best fit was:
+The best fit was -5.46308E+05 (the last example):
 {{{
 At iterate   12    f= -5.49110E+05    |proj g|=  7.97344E+01
 --grad 17: 3.84748005867
@@ -137,3 +137,5 @@ henry: -551148.320722 tom: 21858.9853381 iter: 91
 henry: -551150.262225 tom: 21855.1023329 iter: 98
 henry: -551150.641107 tom: 21854.3445692 iter: 99
 }}}
+
+So simplex is the best method, but it needs to be restarted.
