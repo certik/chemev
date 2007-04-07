@@ -121,6 +121,11 @@ class point:
         else:
             raise "need to specify exactly one tangent"
 
+def sign(x):
+    if x>0:
+        return 1
+    else:
+        return -1
 
 def interpolate(points,t):
     """points=(x,y), list of x's and y's. "t" ... list of x, for which we want
@@ -137,7 +142,10 @@ def interpolate(points,t):
     t1 = numarray.compress( (x>min(xx)) & (x<xx[-1]), x )
 #   t2 = numarray.compress(x>=max(xx), x)
     t2 = numarray.compress(x>=xx[-1], x)
-    slope0 = (yy[1]-yy[0])/(xx[1]-xx[0])
+    if (xx[1]-xx[0] == 0):
+        slope0 = sign(yy[1]-yy[0])*1e20
+    else:
+        slope0 = (yy[1]-yy[0])/(xx[1]-xx[0])
     slope2 = (yy[-1]-yy[-2])/(xx[-1]-xx[-2])
     indices = numarray.searchsorted(xx,t1)
     x0 = xx[indices-1]
