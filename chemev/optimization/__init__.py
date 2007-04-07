@@ -56,7 +56,7 @@ class ReflectLogistics(Logistics):
         #I am lazy to implement it now, but because I am using random values
         #at the beginning, this works fine:
         import random
-        return random.random()*10-5
+        return random.random()*2
 
 class ExpLogistics(Logistics):
 
