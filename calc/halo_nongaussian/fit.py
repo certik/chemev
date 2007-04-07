@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#import cgitb; cgitb.enable(format="text")
+import cgitb; cgitb.enable(format="text")
 import math
 from math import pi
 
@@ -82,10 +82,20 @@ def simul(isodir):
     sfr_initial = sfr(t,params)
     met_initial = metallicity(t,params)
 
-    #pars=optimization.minmax(optimization.fmin_bfgs,f,
-    pars=optimization.minmax(optimization.fmin_simplex,f,
-            params.getvalues(),params.min(),params.max(),
-            callback=b, iter=5, logistics = optimization.ReflectLogistics)
+    print "start"
+    #todo:
+    #- the reflectlogistics randomizes the parameters once more, thus
+    #the sfr_initial and met_initial is nonsense then. fix it in 
+    #ReflectLogistics.fracinv()
+    #- let the simplex method restart automatically
+
+    #pars=optimization.minmax(optimization.fmin_bfgs,
+    pars=optimization.minmax(optimization.fmin_simplex,
+    #pars=optimization.minmax(optimization.fmin_anneal,
+            f,params.getvalues(),params.min(),params.max(),
+            callback=b, iter=10, 
+            #logistics = optimization.ReflectLogistics)
+            logistics = optimization.ExpLogistics)
     params.setvalues(pars)
     utils.plot_sfr_metallicity(t,sfr_initial, sfr(t,params),
         met_initial, metallicity(t,params))
